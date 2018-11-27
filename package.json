@@ -1,0 +1,19 @@
+{
+  "name": "mcity-vue-shared",
+  "version": "1.0.0",
+  "description": "Shared files for Mcity vue projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcity/Mcity-vue-shared.git"
+  },
+  "author": "Brandon Lyons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcity/Mcity-vue-shared/issues"
+  },
+  "homepage": "https://github.com/mcity/Mcity-vue-shared#readme"
+}
