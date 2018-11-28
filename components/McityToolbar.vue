@@ -134,6 +134,10 @@ export default {
     isUserAdmin: {
       required: true,
       type: Boolean
+    },
+    title: {
+      required: true,
+      type: String
     }
   },
   methods: {
@@ -145,7 +149,6 @@ export default {
     return {
       drawer: false,
       clipped: false,
-      title: 'Project Tracking',
       avatarMenu: false,
       sidebarLinks: [
         {
