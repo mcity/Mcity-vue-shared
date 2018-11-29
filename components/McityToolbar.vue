@@ -7,6 +7,7 @@
       enable-resize-watcher
       fixed
       app
+      width="220"
     >
       <v-list>
         <v-list-tile
