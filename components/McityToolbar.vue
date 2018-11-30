@@ -93,7 +93,7 @@
           <v-icon slot="activator">fa-ellipsis-v</v-icon>
           <v-list>
             <v-list-tile
-              @click="updatePresentationMode()">
+              @click="$store.commit('updatePresentationMode')">
               <v-list-tile-title>
                 <v-icon>fa-text-height</v-icon>
                 {{ presentationText }}
