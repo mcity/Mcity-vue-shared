@@ -11,6 +11,7 @@ Common vue files/themed components used across projects
     - username
     - presentation-text
     - isUserAdmin
+    - title
 4. There is a named slot available titled "buttons" when any app-specific toolbar buttons can be placed (see example).
 
 ### Example:
@@ -20,6 +21,7 @@ Common vue files/themed components used across projects
   :username="username"
   :presentation-text="presentationText"
   :isUserAdmin="isUserAdmin"
+  title="Project Tracking"
 >
   <template slot="buttons">
     <v-btn
