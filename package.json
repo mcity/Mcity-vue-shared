@@ -1,6 +1,6 @@
 {
   "name": "mcity-vue-shared",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Shared files for Mcity vue projects",
   "main": "index.js",
   "scripts": {
