@@ -153,22 +153,28 @@ export default {
       avatarMenu: false,
       sidebarLinks: [
         {
-          icon: 'fa-key',
-          link: 'https://keys.um.city/',
-          text: 'Login/Keys',
-          lock: false
-        },
-        {
           icon: 'fa-home',
-          link: 'https://members.um.city/',
+          link: 'https://umich.instructure.com/courses/212066',
           text: 'Member Portal',
-          lock: true
+          lock: false
         },
         {
           icon: 'fa-chart-line',
           link: 'https://projects.um.city',
           text: 'Project Dashboard',
           lock: false
+        },
+        {
+          icon: 'fa-database',
+          link: 'https://garage.um.city/',
+          text: 'Data Garage',
+          lock: false
+        },
+        {
+          icon: 'fa-tachometer',
+          link: 'https://gauge.um.city/',
+          text: 'Data Gauge',
+          lock: true
         },
         {
           icon: 'fa-calendar-alt',
@@ -180,7 +186,7 @@ export default {
           icon: 'fa-traffic-light',
           link: 'https://mcity-control-frontend.herokuapp.com/',
           text: 'Track Control',
-          lock: true
+          lock: false
         },
         {
           icon: 'fa-shuttle-van',
@@ -189,11 +195,11 @@ export default {
           lock: false
         },
         {
-          icon: 'fa-database',
-          link: 'https://gauge.um.city/',
-          text: 'Data Guage',
-          lock: true
-        }
+          icon: 'fa-key',
+          link: 'https://keys.um.city/',
+          text: 'Login/Keys',
+          lock: false
+        },
       ]
     }
   }
