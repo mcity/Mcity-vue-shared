@@ -144,6 +144,16 @@ export default {
   methods: {
     getHelp () {
       window.location.href = 'mailto:mcity-engineering@umich.edu'
+    },
+    setSidebarLinks () {
+      let req = new XMLHttpRequest()
+      req.onreadystatechange = function (vue) { 
+        if (this.readyState === XMLHttpRequest.DONE) {
+          vue.sidebarLinks = JSON.parse(req.responseText)
+        }
+      }.bind(req, this)
+      req.open('GET', 'https://static.um.city/menu.json')
+      req.send()
     }
   },
   data () {
@@ -151,57 +161,11 @@ export default {
       drawer: false,
       clipped: false,
       avatarMenu: false,
-      sidebarLinks: [
-        {
-          icon: 'fa-home',
-          link: 'https://umich.instructure.com/courses/212066',
-          text: 'Member Portal',
-          lock: false
-        },
-        {
-          icon: 'fa-chart-line',
-          link: 'https://projects.um.city',
-          text: 'Project Dashboard',
-          lock: false
-        },
-        {
-          icon: 'fa-database',
-          link: 'https://garage.um.city/',
-          text: 'Data Garage',
-          lock: false
-        },
-        {
-          icon: 'fa-tachometer',
-          link: 'https://gauge.um.city/',
-          text: 'Data Gauge',
-          lock: true
-        },
-        {
-          icon: 'fa-calendar-alt',
-          link: 'https://calendar.um.city/',
-          text: 'Track Scheduling',
-          lock: true
-        },
-        {
-          icon: 'fa-traffic-light',
-          link: 'https://mcity-control-frontend.herokuapp.com/',
-          text: 'Track Control',
-          lock: false
-        },
-        {
-          icon: 'fa-shuttle-van',
-          link: 'https://mcity.doublemap.com/map/',
-          text: 'Shuttle Tracker',
-          lock: false
-        },
-        {
-          icon: 'fa-key',
-          link: 'https://keys.um.city/',
-          text: 'Login/Keys',
-          lock: false
-        },
-      ]
+      sidebarLinks: []
     }
+  },
+  mounted () {
+    this.setSidebarLinks()
   }
 }
 </script>
