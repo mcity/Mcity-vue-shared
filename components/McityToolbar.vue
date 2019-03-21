@@ -121,24 +121,29 @@ export default {
   },
   props: {
     fullname: {
-      required: true,
-      type: String
+      required: false,
+      type: String,
+      default: ''
     },
     username: {
-      required: true,
-      type: String
+      required: false,
+      type: String,
+      default: ''
     },
     presentationText: {
-      required: true,
-      type: String
+      required: false,
+      type: String,
+      default: ''
     },
     isUserAdmin: {
-      required: true,
-      type: Boolean
+      required: false,
+      type: Boolean,
+      default: false
     },
     title: {
-      required: true,
-      type: String
+      required: false,
+      type: String,
+      default: ''
     }
   },
   methods: {
