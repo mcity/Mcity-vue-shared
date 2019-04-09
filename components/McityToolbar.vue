@@ -35,7 +35,8 @@
       <router-link to="/" class="hidden-sm-and-down">
         <blockM></blockM>
       </router-link>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title @click="goHome" role="button">{{ title }}</v-toolbar-title>
+
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <slot name="buttons"></slot>
@@ -166,6 +167,9 @@ export default {
       }.bind(req, this)
       req.open('GET', 'https://static.um.city/menu.json')
       req.send()
+    },
+    goHome () {
+      this.$router.push('/')
     }
   },
   data () {
