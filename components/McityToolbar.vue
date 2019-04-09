@@ -32,7 +32,7 @@
       :clipped-left="true"
     >
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link to="/" class="hidden-md-and-down">
+      <router-link to="/" class="hidden-sm-and-down">
         <blockM></blockM>
       </router-link>
       <v-toolbar-title v-text="title"></v-toolbar-title>
