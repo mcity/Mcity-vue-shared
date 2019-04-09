@@ -114,6 +114,7 @@
                 Help
               </v-list-tile-title>
             </v-list-tile>
+            <slot name="overflow-buttons"></slot>
           </v-list>
         </v-menu>
       </v-toolbar-items>
