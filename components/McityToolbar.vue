@@ -27,20 +27,20 @@
     </v-navigation-drawer>
     <v-toolbar
       app
-      dark 
+      dark
       color="primary"
       :clipped-left="true"
     >
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link to="/">
+      <router-link to="/" class="hidden-md-and-down">
         <blockM></blockM>
       </router-link>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <slot name="buttons"></slot>
-        
-        <v-menu 
+
+        <v-menu
           left
           v-model="avatarMenu"
           :close-on-content-click="false"
@@ -86,8 +86,8 @@
           </v-card>
         </v-menu>
 
-        <v-menu 
-          open-on-hover 
+        <v-menu
+          open-on-hover
           class="ml-3"
         >
           <v-icon slot="activator">fa-ellipsis-v</v-icon>
