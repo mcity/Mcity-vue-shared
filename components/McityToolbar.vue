@@ -100,6 +100,13 @@
               </v-list-tile-title>
             </v-list-tile>
             <v-list-tile
+              :href="'/apidocs'" target="_blank">
+              <v-list-tile-title>
+                <v-icon>fa-brackets-curly</v-icon>
+               API Docs
+              </v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile
               @click="getHelp">
               <v-list-tile-title>
                 <v-icon>fa-question-circle</v-icon>
