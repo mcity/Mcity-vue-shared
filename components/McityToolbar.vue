@@ -93,27 +93,35 @@
         >
           <v-icon slot="activator">fa-ellipsis-v</v-icon>
           <v-list>
-            <v-list-tile
-              @click="$store.commit('updatePresentationMode')">
-              <v-list-tile-title>
+            <v-list-tile @click="$store.commit('updatePresentationMode')">
+              <v-list-tile-action>
                 <v-icon>fa-text-height</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
                 {{ presentationText }}
-              </v-list-tile-title>
+              </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile
-              :href="'/apidocs'" target="_blank">
-              <v-list-tile-title>
+
+            <v-list-tile :href="'/apidocs'" target="_blank">
+              <v-list-tile-action>
                 <v-icon>fa-brackets-curly</v-icon>
-               API Docs
-              </v-list-tile-title>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                API Docs
+              </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile
-              @click="getHelp">
-              <v-list-tile-title>
+
+            <v-list-tile @click="getHelp">
+              <v-list-tile-action>
                 <v-icon>fa-question-circle</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
                 Help
-              </v-list-tile-title>
+              </v-list-tile-content>
             </v-list-tile>
+
+            <v-divider></v-divider>
+
             <slot name="overflow-buttons"></slot>
           </v-list>
         </v-menu>
