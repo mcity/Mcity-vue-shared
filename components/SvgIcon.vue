@@ -8,7 +8,8 @@ export default {
   props: ["color", "url"],
   data () {
     return {
-      svg: null
+      svg: null,
+      instance: axios.create() // Need new instance so Auth header is not attached
     }
   },
   computed: {
@@ -18,7 +19,7 @@ export default {
     }
   },
   created () {
-    axios
+    this.instance
       .get(this.url)
       .then(response => (this.svg = response.data))
       .catch(e => console.log(e + ""))
@@ -28,6 +29,6 @@ export default {
 
 <style scoped>
 div {
-  color: var(--fill-color)
+  color: var(--fill-color);
 }
 </style>
