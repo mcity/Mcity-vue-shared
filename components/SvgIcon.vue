@@ -44,11 +44,14 @@ export default {
 div {
   color: var(--fill-color);
 
-  .sm {
+  .xs {
     width: 1em;
   }
-  .md {
+  .sm {
     width: 1.5em;
+  }
+  .md {
+    width: 2em;
   }
   .lg {
     width: 3em;

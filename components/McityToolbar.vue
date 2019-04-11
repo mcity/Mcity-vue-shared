@@ -17,7 +17,8 @@
           target="_blank"
         >
           <v-list-tile-action>
-            <v-icon color="primary">{{item.lock ? 'fa-lock' : item.icon}}</v-icon>
+            <v-icon v-if="item.lock === ''" color="primary">fa-lock</v-icon>
+            <svg-icon v-else :url="item.svg" />
           </v-list-tile-action>
           <v-list-tile-content color="primary--text">
             {{item.text}}
@@ -132,9 +133,11 @@
 
 <script>
 import blockM from './BlockM.vue'
+import SvgIcon from './SvgIcon'
 export default {
   components: {
-    blockM
+    blockM,
+    SvgIcon
   },
   props: {
     fullname: {
