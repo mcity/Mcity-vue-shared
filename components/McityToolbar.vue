@@ -71,7 +71,11 @@
                   <v-btn flat
                     href="https://keys.um.city/password">
                     Change Password
-                    <svg-icon color="#989c97" url="https://static.um.city/icons/fingerprint-solid.svg"/>                    
+                    <svg-icon
+                      color="#989c97"
+                      size="sm"
+                      url="https://static.um.city/icons/fingerprint-solid.svg"
+                    />
                   </v-btn>
                 </v-list-tile-action>
               </v-list-tile>
@@ -80,8 +84,11 @@
                   <v-btn flat
                     href="https://keys.um.city/logout">
                     Logout
-                    <svg-icon color="#989c97" url="https://static.um.city/icons/sign-out-alt-solid.svg"/>
-                    <v-icon right>fa-sign-out-alt</v-icon>
+                    <svg-icon
+                      color="#989c97"
+                      size="sm"
+                      url="https://static.um.city/icons/sign-out-alt-solid.svg"
+                    />
                   </v-btn>
                 </v-list-tile-action>
               </v-list-tile>
@@ -97,7 +104,11 @@
           <v-list>
             <v-list-tile @click="$store.commit('updatePresentationMode')">
               <v-list-tile-action>
-                <svg-icon color="#989c97" url="https://static.um.city/icons/text-height-solid.svg"/>
+                <svg-icon
+                  color="#989c97"
+                  size="sm"
+                  url="https://static.um.city/icons/text-height-solid.svg"
+                />
               </v-list-tile-action>
               <v-list-tile-content>
                 {{ presentationText }}
@@ -106,7 +117,11 @@
 
             <v-list-tile :href="'/apidocs'" target="_blank">
               <v-list-tile-action>
-                <svg-icon color="#989c97" url="https://static.um.city/icons/brackets-curly-solid.svg"/>
+                <svg-icon
+                  color="#989c97"
+                  size="sm"
+                  url="https://static.um.city/icons/brackets-curly-solid.svg"
+                />
               </v-list-tile-action>
               <v-list-tile-content>
                 API Docs
@@ -115,7 +130,11 @@
 
             <v-list-tile @click="getHelp">
               <v-list-tile-action>
-                <svg-icon color="#989c97" url="https://static.um.city/icons/question-circle-solid.svg"/>
+                <svg-icon
+                  color="#989c97"
+                  size="sm"
+                  url="https://static.um.city/icons/question-circle-solid.svg"
+                />
               </v-list-tile-action>
               <v-list-tile-content>
                 Help
