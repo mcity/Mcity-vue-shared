@@ -73,7 +73,7 @@
                     href="https://keys.um.city/password">
                     Change Password
                     <svg-icon
-                      color="#989c97"
+                      :color="gray"
                       class="ml-2"
                       size="sm"
                       url="https://static.um.city/icons/fingerprint-solid.svg"
@@ -87,7 +87,7 @@
                     href="https://keys.um.city/logout">
                     Logout
                     <svg-icon
-                      color="#989c97"
+                      :color="gray"
                       class="ml-2"
                       size="sm"
                       url="https://static.um.city/icons/sign-out-alt-solid.svg"
@@ -108,7 +108,7 @@
             <v-list-tile @click="$store.commit('updatePresentationMode')">
               <v-list-tile-action>
                 <svg-icon
-                  color="#989c97"
+                  :color="gray"
                   size="sm"
                   url="https://static.um.city/icons/text-height-solid.svg"
                 />
@@ -121,7 +121,7 @@
             <v-list-tile :href="'/apidocs'" target="_blank">
               <v-list-tile-action>
                 <svg-icon
-                  color="#989c97"
+                  :color="gray"
                   size="sm"
                   url="https://static.um.city/icons/brackets-curly-solid.svg"
                 />
@@ -134,7 +134,7 @@
             <v-list-tile @click="getHelp">
               <v-list-tile-action>
                 <svg-icon
-                  color="#989c97"
+                  :color="gray"
                   size="sm"
                   url="https://static.um.city/icons/question-circle-solid.svg"
                 />
@@ -216,7 +216,8 @@ export default {
       drawer: false,
       clipped: false,
       avatarMenu: false,
-      sidebarLinks: []
+      sidebarLinks: [],
+      gray: '#606060'
     }
   },
   mounted () {
