@@ -105,7 +105,7 @@
         >
           <v-icon slot="activator">fa-ellipsis-v</v-icon>
           <v-list>
-            <v-list-tile @click="$store.commit('updatePresentationMode')">
+            <v-list-tile v-if="showPresentationButton" @click="$store.commit('updatePresentationMode')">
               <v-list-tile-action>
                 <svg-icon
                   :color="gray"
@@ -189,6 +189,10 @@ export default {
       default: ''
     },
     showUserMenu: {
+      type: Boolean,
+      default: true
+    },
+    showPresentationButton: {
       type: Boolean,
       default: true
     }
