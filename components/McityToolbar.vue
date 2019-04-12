@@ -17,8 +17,8 @@
           target="_blank"
         >
           <v-list-tile-action>
-            <v-icon v-if="item.lock" color="primary">fa-lock</v-icon>
-            <svg-icon v-else :url="item.svg" />
+            <v-icon v-if="item.lock" color="primary" class="ml-1">fa-lock</v-icon>
+            <svg-icon v-else :url="item.svg"/>
           </v-list-tile-action>
           <v-list-tile-content color="primary--text">
             {{item.text}}
