@@ -73,6 +73,7 @@
                     Change Password
                     <svg-icon
                       color="#989c97"
+                      class="ml-2"
                       size="sm"
                       url="https://static.um.city/icons/fingerprint-solid.svg"
                     />
@@ -86,6 +87,7 @@
                     Logout
                     <svg-icon
                       color="#989c97"
+                      class="ml-2"
                       size="sm"
                       url="https://static.um.city/icons/sign-out-alt-solid.svg"
                     />
