@@ -43,6 +43,7 @@
         <slot name="buttons"></slot>
 
         <v-menu
+          v-if="showUserMenu"
           left
           v-model="avatarMenu"
           :close-on-content-click="false"
@@ -186,6 +187,10 @@ export default {
       required: false,
       type: String,
       default: ''
+    },
+    showUserMenu: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
