@@ -17,7 +17,7 @@
           target="_blank"
         >
           <v-list-tile-action>
-            <v-icon v-if="item.lock === ''" color="primary">fa-lock</v-icon>
+            <v-icon v-if="item.lock" color="primary">fa-lock</v-icon>
             <svg-icon v-else :url="item.svg" />
           </v-list-tile-action>
           <v-list-tile-content color="primary--text">
@@ -96,7 +96,7 @@
           <v-list>
             <v-list-tile @click="$store.commit('updatePresentationMode')">
               <v-list-tile-action>
-                <v-icon>fa-text-height</v-icon>
+                <svg-icon url="https://static.um.city/icons/text-height-solid.svg"/>
               </v-list-tile-action>
               <v-list-tile-content>
                 {{ presentationText }}
@@ -105,7 +105,7 @@
 
             <v-list-tile :href="'/apidocs'" target="_blank">
               <v-list-tile-action>
-                <v-icon>fa-brackets-curly</v-icon>
+                <svg-icon url="https://static.um.city/icons/brackets-curly-solid.svg"/>
               </v-list-tile-action>
               <v-list-tile-content>
                 API Docs
@@ -114,7 +114,7 @@
 
             <v-list-tile @click="getHelp">
               <v-list-tile-action>
-                <v-icon>fa-question-circle</v-icon>
+                <svg-icon url="https://static.um.city/icons/question-circle-solid.svg"/>
               </v-list-tile-action>
               <v-list-tile-content>
                 Help
