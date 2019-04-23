@@ -44,6 +44,9 @@ export default {
 div {
   color: var(--fill-color);
 
+  .xxs {
+    width: 0.85em;
+  }
   .xs {
     width: 1em;
   }

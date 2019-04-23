@@ -17,7 +17,7 @@
           target="_blank"
         >
           <v-list-tile-action>
-            <v-icon v-if="item.lock" color="primary" class="ml-1">fa-lock</v-icon>
+            <svg-icon v-if="item.lock" url="https://static.um.city/icons/lock-solid.svg"/>
             <svg-icon v-else :url="item.svg"/>
           </v-list-tile-action>
           <v-list-tile-content color="primary--text">
@@ -48,7 +48,13 @@
           v-model="avatarMenu"
           :close-on-content-click="false"
         >
-          <v-icon slot="activator">fa-user-circle</v-icon>
+          <svg-icon
+            slot="activator"
+            color="white"
+            size="xxs"
+            class="mt-1"
+            url="https://static.um.city/icons/user-circle-solid.svg"
+          />
           <v-card>
             <v-list>
               <v-list-tile>
@@ -103,7 +109,13 @@
           open-on-hover
           class="ml-3"
         >
-          <v-icon slot="activator">fa-ellipsis-v</v-icon>
+          <svg-icon
+            slot="activator"
+            color="white"
+            size="xxs"
+            class="mt-1"
+            url="https://static.um.city/icons/ellipsis-v-solid.svg"
+          />
           <v-list>
             <v-list-tile v-if="showPresentationButton" @click="$store.commit('updatePresentationMode')">
               <v-list-tile-action>
