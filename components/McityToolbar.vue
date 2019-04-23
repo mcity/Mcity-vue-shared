@@ -51,7 +51,7 @@
           <svg-icon
             slot="activator"
             color="white"
-            size="xxs"
+            size="sm"
             class="mt-1"
             url="https://static.um.city/icons/user-circle-solid.svg"
           />
@@ -113,7 +113,7 @@
             slot="activator"
             color="white"
             size="xxs"
-            class="mt-1"
+            class="mt-1 mx-1"
             url="https://static.um.city/icons/ellipsis-v-solid.svg"
           />
           <v-list>
