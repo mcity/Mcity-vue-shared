@@ -61,8 +61,11 @@
               <v-list-tile>
                 <v-list-tile-content>
                   <v-list-tile-title>
-                    <a href="https://keys.um.city" 
-                      target="_blank">
+                    <a
+                      href="https://keys.um.city" 
+                      target="_blank"
+                      rel="noopener"
+                    >
                       {{ fullname }}
                     </a>
                   </v-list-tile-title>
