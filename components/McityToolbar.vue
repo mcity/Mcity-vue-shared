@@ -15,6 +15,7 @@
           :key="ind"
           :href="(isUserAdmin || !item.lock) ? item.link : ''"
           target="_blank"
+          rel="noopener"
         >
           <v-list-tile-action>
             <svg-icon v-if="item.lock" url="https://static.um.city/icons/lock-solid.svg"/>
