@@ -4,7 +4,7 @@ Common vue files/themed components used across projects
 # Usage
 ## Toolbar
 1. Import the `McityToolbar` component with
-`import McityToolbar from 'mcity-vue-shared/components/McityToolbar'`
+`import McityToolbar from '@mcity/mcity-vue-shared/components/McityToolbar'`
 2. Include the toolbar component in the template for `app.vue` with `<mcity-toolbar><mcity-toolbar/>`
 3. Pass the following required props
     - fullname
