@@ -3,7 +3,7 @@ Common vue files/themed components used across projects
 
 # Usage
 ## Toolbar
-1. Import the `McityToolbar` component with 
+1. Import the `McityToolbar` component with
 `import McityToolbar from 'mcity-vue-shared/components/McityToolbar'`
 2. Include the toolbar component in the template for `app.vue` with `<mcity-toolbar><mcity-toolbar/>`
 3. Pass the following required props
@@ -12,7 +12,7 @@ Common vue files/themed components used across projects
     - presentation-text
     - isUserAdmin
     - title
-4. There is a named slot available titled "buttons" when any app-specific toolbar buttons can be placed (see example).
+4. There is a named slot available titled "buttons" when any app-specific toolbar buttons can be placed (see example below).
 
 ### Example:
 ```

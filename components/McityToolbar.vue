@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-navigation-drawer
-      persistent
       v-model="drawer"
+      persistent
       :clipped="true"
       enable-resize-watcher
       fixed
@@ -10,77 +10,101 @@
       width="220"
     >
       <v-list>
-        <v-list-tile
+        <v-list-item
           v-for="(item, ind) in sidebarLinks"
           :key="ind"
           :href="(isUserAdmin || !item.lock) ? item.link : ''"
           target="_blank"
           rel="noopener"
         >
-          <v-list-tile-action>
-            <svg-icon v-if="item.lock" url="https://static.um.city/icons/lock-solid.svg"/>
-            <svg-icon v-else :url="item.svg"/>
-          </v-list-tile-action>
-          <v-list-tile-content color="primary--text">
-            {{item.text}}
-          </v-list-tile-content>
-        </v-list-tile>
+          <v-list-item-action>
+            <svg-icon
+              v-if="item.lock"
+              url="https://static.um.city/icons/lock-solid.svg"
+            />
+            <svg-icon
+              v-else
+              :url="item.svg"
+            />
+          </v-list-item-action>
+          <v-list-item-content color="primary--text">
+            {{ item.text }}
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar
+    <v-app-bar
       app
       dark
       color="primary"
       :clipped-left="true"
     >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link to="/" class="hidden-sm-and-down">
-        <blockM></blockM>
+      <v-app-bar-nav-icon @click="drawer = !drawer"/>
+      <router-link
+        to="/"
+        class="hidden-sm-and-down"
+      >
+        <mcity-logo class="logo-padding-top" />
       </router-link>
-      <v-toolbar-title @click="goHome" role="button">{{ title }}</v-toolbar-title>
+      <v-toolbar-title
+        class="subtitle"
+        role="button"
+        @click="goHome"
+      >
+        {{ title }}
+      </v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-toolbar-items>
-        <slot name="buttons"></slot>
-
+        <slot name="buttons"/>
         <v-menu
-          v-if="showUserMenu"
           left
+          v-if="showUserMenu"
           v-model="avatarMenu"
           :close-on-content-click="false"
         >
-          <svg-icon
-            slot="activator"
-            color="white"
-            size="sm"
-            class="mt-1"
-            url="https://static.um.city/icons/user-circle-solid.svg"
-          />
-          <v-card>
-            <v-list>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              icon
+              color="primary"
+              dark
+              v-on="on"
+            >
+              <svg-icon
+                color="white"
+                size="sm"
+                class="mt-1"
+                url="https://static.um.city/icons/user-circle-solid.svg"
+              />
+            </v-btn>
+          </template>
+            <v-list class="min-content">
+              <v-list-item>
+                <v-list-item-content class="no-padding">
+                  <v-list-item-title>
                     <a
-                      href="https://keys.um.city" 
+                      href="https://keys.um.city"
                       target="_blank"
                       rel="noopener"
                     >
                       {{ fullname }}
                     </a>
-                  </v-list-tile-title>
-                  <v-list-tile-sub-title>
+                  </v-list-item-title>
+                  <v-list-item-subtitle>
                     {{ username }}
-                  </v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
             </v-list>
-            <v-divider></v-divider>
+            <v-divider />
             <v-list>
-              <v-list-tile>
-                <v-list-tile-action>
-                  <v-btn flat
-                    href="https://keys.um.city/password">
+              <v-list-item>
+                  <v-btn
+                    text
+                    class="no-padding"
+                    href="https://keys.um.city/password"
+                    v-on="on"
+                  >
                     Change Password
                     <svg-icon
                       :color="gray"
@@ -89,12 +113,14 @@
                       url="https://static.um.city/icons/fingerprint-solid.svg"
                     />
                   </v-btn>
-                </v-list-tile-action>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-action>
-                  <v-btn flat
-                    href="https://keys.um.city/logout">
+              </v-list-item>
+              <v-list-item>
+                  <v-btn
+                    text
+                    class="no-padding"
+                    href="https://keys.um.city/logout"
+                    v-on="on"
+                  >
                     Logout
                     <svg-icon
                       :color="gray"
@@ -103,123 +129,148 @@
                       url="https://static.um.city/icons/sign-out-alt-solid.svg"
                     />
                   </v-btn>
-                </v-list-tile-action>
-              </v-list-tile>
+              </v-list-item>
             </v-list>
-          </v-card>
         </v-menu>
+      </v-toolbar-items>
 
         <v-menu
           open-on-hover
           class="ml-3"
         >
-          <svg-icon
-            slot="activator"
-            color="white"
-            size="xxs"
-            class="mt-1 mx-1"
-            url="https://static.um.city/icons/ellipsis-v-solid.svg"
-          />
+          <template v-slot:activator="{ on }">
+            <v-btn
+              icon
+              color="primary"
+              dark
+              v-on="on"
+            >
+              <svg-icon
+                v-on="on"
+                color="white"
+                size="xxs"
+                class="mt-1 mx-1"
+                url="https://static.um.city/icons/ellipsis-v-solid.svg"
+              />
+            </v-btn>
+          </template>
           <v-list>
-            <v-list-tile v-if="showPresentationButton" @click="$store.commit('updatePresentationMode')">
-              <v-list-tile-action>
+            <v-list-item
+              v-if="showPresentationButton"
+              @click="$store.commit('updatePresentationMode')"
+            >
+              <v-list-item-action>
                 <svg-icon
                   :color="gray"
                   size="sm"
                   url="https://static.um.city/icons/text-height-solid.svg"
                 />
-              </v-list-tile-action>
-              <v-list-tile-content>
+              </v-list-item-action>
+              <v-list-item-content>
                 {{ presentationText }}
-              </v-list-tile-content>
-            </v-list-tile>
+              </v-list-item-content>
+            </v-list-item>
 
-            <v-list-tile :href="'/apidocs'" target="_blank">
-              <v-list-tile-action>
+            <v-list-item
+              :href="'/apidocs'"
+              target="_blank"
+            >
+              <v-list-item-action>
                 <svg-icon
                   :color="gray"
                   size="sm"
                   url="https://static.um.city/icons/brackets-curly-solid.svg"
                 />
-              </v-list-tile-action>
-              <v-list-tile-content>
+              </v-list-item-action>
+              <v-list-item-content>
                 API Docs
-              </v-list-tile-content>
-            </v-list-tile>
+              </v-list-item-content>
+            </v-list-item>
 
-            <v-list-tile @click="getHelp">
-              <v-list-tile-action>
+            <v-list-item @click="getHelp">
+              <v-list-item-action>
                 <svg-icon
                   :color="gray"
                   size="sm"
                   url="https://static.um.city/icons/question-circle-solid.svg"
                 />
-              </v-list-tile-action>
-              <v-list-tile-content>
+              </v-list-item-action>
+              <v-list-item-content>
                 Help
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider></v-divider>
-
-            <slot name="overflow-buttons"></slot>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider />
+            <slot name="overflow-buttons" />
           </v-list>
         </v-menu>
-      </v-toolbar-items>
-    </v-toolbar>
+    </v-app-bar>
   </div>
 </template>
 
 <script>
-import blockM from './BlockM.vue'
+import McityLogo from './McityLogo.vue'
 import SvgIcon from './SvgIcon'
 export default {
+  name: 'McityToolbar',
   components: {
-    blockM,
-    SvgIcon
+    'mcity-logo': McityLogo,
+    'svg-icon': SvgIcon,
   },
   props: {
     fullname: {
       required: false,
       type: String,
-      default: ''
+      default: '',
     },
     username: {
       required: false,
       type: String,
-      default: ''
+      default: '',
     },
     presentationText: {
       required: false,
       type: String,
-      default: ''
+      default: '',
     },
     isUserAdmin: {
       required: false,
       type: Boolean,
-      default: false
+      default: false,
     },
     title: {
       required: false,
       type: String,
-      default: ''
+      default: '',
     },
     showUserMenu: {
       type: Boolean,
-      default: true
+      default: true,
     },
     showPresentationButton: {
       type: Boolean,
-      default: true
+      default: true,
+    },
+  },
+  data () {
+    return {
+      drawer: false,
+      clipped: false,
+      avatarMenu: false,
+      sidebarLinks: [],
+      gray: '#606060',
+      on: {},
     }
+  },
+  mounted () {
+    this.setSidebarLinks()
   },
   methods: {
     getHelp () {
       window.location.href = 'mailto:mcity-engineering@umich.edu'
     },
     setSidebarLinks () {
-      let req = new XMLHttpRequest()
-      req.onreadystatechange = function (vue) { 
+      const req = new XMLHttpRequest()
+      req.onreadystatechange = function (vue) {
         if (this.readyState === XMLHttpRequest.DONE) {
           vue.sidebarLinks = JSON.parse(req.responseText)
         }
@@ -229,23 +280,25 @@ export default {
     },
     goHome () {
       this.$router.push('/')
-    }
+    },
   },
-  data () {
-    return {
-      drawer: false,
-      clipped: false,
-      avatarMenu: false,
-      sidebarLinks: [],
-      gray: '#606060'
-    }
-  },
-  mounted () {
-    this.setSidebarLinks()
-  }
 }
 </script>
 
 <style>
-
+.subtitle {
+  font-weight: 500;
+  padding-left: 20px;
+}
+.no-padding {
+  padding: 0 0 0 0 !important;
+  letter-spacing: inherit !important  ;
+}
+.min-content {
+  min-width: 204px;
+  width: min-content;
+}
+.logo-padding-top {
+  padding-top: 4px;
+}
 </style>

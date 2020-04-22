@@ -1,5 +1,5 @@
 <template>
-  <v-card 
+  <v-card
     dark
     color="primary"
   >
@@ -9,3 +9,9 @@
     </v-card-text>
   </v-card>
 </template>
+
+<script>
+export default {
+  name: 'NotFound',
+}
+</script>
