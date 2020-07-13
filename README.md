@@ -13,6 +13,7 @@ Common vue files/themed components used across projects
     - isUserAdmin
     - title
 4. There is a named slot available titled "buttons" when any app-specific toolbar buttons can be placed (see example below).
+5. There is another slot, "overflow-buttons" which maps to inside the ellipses menu on the far right of the toolbar.
 
 ### Example:
 ```
@@ -23,7 +24,7 @@ Common vue files/themed components used across projects
   :isUserAdmin="isUserAdmin"
   title="Project Tracking"
 >
-  <template slot="buttons">
+  <template v-slot:buttons>
     <v-btn
       v-if="isUserAdmin"
       flat
