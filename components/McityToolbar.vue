@@ -39,7 +39,7 @@
       color="primary"
       :clipped-left="true"
     >
-      <v-app-bar-nav-icon @click="drawer = !drawer"/>
+      <v-app-bar-nav-icon color="white" @click="drawer = !drawer"/>
       <router-link
         to="/"
         class="hidden-sm-and-down"
@@ -56,7 +56,7 @@
 
       <v-spacer />
       <v-toolbar-items>
-        <slot name="buttons"/>
+        <slot name="buttons" />
         <v-menu
           left
           v-if="showUserMenu"
@@ -146,7 +146,6 @@
               v-on="on"
             >
               <svg-icon
-                v-on="on"
                 color="white"
                 size="xxs"
                 class="mt-1 mx-1"
