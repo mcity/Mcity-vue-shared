@@ -39,7 +39,7 @@
       color="primary"
       :clipped-left="true"
     >
-      <v-app-bar-nav-icon color="white" @click="drawer = !drawer"/>
+      <v-app-bar-nav-icon id="nav-toggle-btn" color="white" @click="drawer = !drawer"/>
       <router-link
         to="/"
         class="hidden-sm-and-down"
@@ -285,6 +285,9 @@ export default {
 </script>
 
 <style>
+.nav-toggle-btn {
+  padding-left: 0px !important;
+}
 .subtitle {
   font-weight: 500;
   padding-left: 20px;
