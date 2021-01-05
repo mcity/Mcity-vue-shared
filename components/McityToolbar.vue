@@ -20,13 +20,15 @@
         </v-btn>
       </template>
       <v-list>
+        <slot name="overflow-buttons" />
+        <v-divider />
         <v-list-item
           v-if="showPresentationButton"
           @click="$store.commit('updatePresentationMode')"
         >
           <v-list-item-action>
             <svg-icon
-              :color="gray"
+              :color="black"
               size="sm"
               url="https://static.um.city/icons/text-height-solid.svg"
             />
@@ -39,7 +41,7 @@
         <v-list-item :href="'/apidocs'" target="_blank">
           <v-list-item-action>
             <svg-icon
-              :color="gray"
+              :color="black"
               size="sm"
               url="https://static.um.city/icons/brackets-curly-solid.svg"
             />
@@ -50,15 +52,13 @@
         <v-list-item @click="getHelp">
           <v-list-item-action>
             <svg-icon
-              :color="gray"
+              :color="black"
               size="sm"
               url="https://static.um.city/icons/question-circle-solid.svg"
             />
           </v-list-item-action>
           <v-list-item-content> Help </v-list-item-content>
         </v-list-item>
-        <v-divider />
-        <slot name="overflow-buttons" />
         <v-divider />
         <v-list-item>
           <v-list-item-action>
@@ -100,13 +100,13 @@
               />
             </v-btn>
           </template>
-          <v-list dense two-line>
+          <v-list dense>
             <v-container fluid grid-list-sm>
-              <v-layout row wrap>
-                <v-flex v-for="(item, ind) in applicationLinks" :key="ind" xs3>
-                  <v-divider v-if="item.separator" />
+              <v-layout v-for="(itemCat, indCat) in applicationCategories" :key="indCat" xs3 row wrap>
+                <v-list-item v-if=itemCat><b>{{itemCat}}</b><v-divider /></v-list-item>
+
+                <v-flex v-for="(item, ind) in listApplications(itemCat)" :key="ind" xs3>
                   <v-list-item
-                    v-else
                     :href="isUserAdmin || !item.lock ? item.link : ''"
                     target="_blank"
                     rel="noopener"
@@ -248,6 +248,7 @@ export default {
       clipped: false,
       avatarMenu: false,
       applicationLinks: [],
+      applicationCategories: [],
       gray: "#606060",
       on: {},
     };
@@ -256,6 +257,9 @@ export default {
     this.setapplicationLinks();
   },
   methods: {
+    listApplications(category) {
+        return this.applicationLinks.filter(function(e) { return e.category == category})
+    },
     getHelp() {
       window.location.href = "mailto:mcity-engineering@umich.edu";
     },
@@ -265,6 +269,8 @@ export default {
         if (this.readyState === XMLHttpRequest.DONE) {
           vue.applicationLinks = JSON.parse(req.responseText);
         }
+        //Set Category list
+        vue.applicationCategories = [...new Set(vue.applicationLinks.map(item => item.category))];
       }.bind(req, this);
       req.open("GET", "https://static.um.city/menu.json");
       req.send();
