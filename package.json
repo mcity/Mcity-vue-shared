@@ -1,11 +1,11 @@
 {
   "name": "@mcity/mcity-vue-shared",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Shared files for Mcity vue projects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Brandon Lyons, Jack Bowman, Tyler Worman",
+  "author": "Jack Bowman, Brandon Lyons, & Tyler Worman",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mcity/Mcity-vue-shared/issues"

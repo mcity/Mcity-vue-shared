@@ -100,12 +100,25 @@
               />
             </v-btn>
           </template>
-          <v-list dense>
+          <v-list dense style="max-height: 80vh" class="overflow-y-auto">
             <v-container fluid grid-list-sm>
-              <v-layout v-for="(itemCat, indCat) in applicationCategories" :key="indCat" xs3 row wrap>
-                <v-list-item v-if=itemCat><b>{{itemCat}}</b><v-divider /></v-list-item>
+              <v-layout
+                v-for="(itemCat, indCat) in applicationCategories"
+                :key="indCat"
+                xs3
+                row
+                wrap
+              >
+                <v-list-item two-line v-if="itemCat"
+                  ><b>{{ itemCat }}</b
+                  ><v-divider
+                /></v-list-item>
 
-                <v-flex v-for="(item, ind) in listApplications(itemCat)" :key="ind" xs3>
+                <v-flex
+                  v-for="(item, ind) in listApplications(itemCat)"
+                  :key="ind"
+                  xs3
+                >
                   <v-list-item
                     :href="isUserAdmin || !item.lock ? item.link : ''"
                     target="_blank"
@@ -258,7 +271,9 @@ export default {
   },
   methods: {
     listApplications(category) {
-        return this.applicationLinks.filter(function(e) { return e.category == category})
+      return this.applicationLinks.filter(function (e) {
+        return e.category == category;
+      });
     },
     getHelp() {
       window.location.href = "mailto:mcity-engineering@umich.edu";
@@ -270,7 +285,9 @@ export default {
           vue.applicationLinks = JSON.parse(req.responseText);
         }
         //Set Category list
-        vue.applicationCategories = [...new Set(vue.applicationLinks.map(item => item.category))];
+        vue.applicationCategories = [
+          ...new Set(vue.applicationLinks.map((item) => item.category)),
+        ];
       }.bind(req, this);
       req.open("GET", "https://static.um.city/menu.json");
       req.send();
