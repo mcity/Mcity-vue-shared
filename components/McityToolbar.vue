@@ -28,7 +28,6 @@
         >
           <v-list-item-action>
             <svg-icon
-              :color="black"
               size="sm"
               url="https://static.um.city/icons/text-height-solid.svg"
             />
@@ -41,7 +40,6 @@
         <v-list-item :href="'/apidocs'" target="_blank">
           <v-list-item-action>
             <svg-icon
-              :color="black"
               size="sm"
               url="https://static.um.city/icons/brackets-curly-solid.svg"
             />
@@ -52,7 +50,6 @@
         <v-list-item @click="getHelp">
           <v-list-item-action>
             <svg-icon
-              :color="black"
               size="sm"
               url="https://static.um.city/icons/question-circle-solid.svg"
             />
