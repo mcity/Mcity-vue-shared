@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-navigation-drawer
-      v-model="drawer"
+      v-model="expandSiderbar"
       persistent
       :clipped="true"
       enable-resize-watcher
@@ -75,7 +75,7 @@
       <v-app-bar-nav-icon
         id="nav-toggle-btn"
         color="white"
-        @click="drawer = !drawer"
+        @click="expandSiderbar = !expandSiderbar"
       />
       <router-link to="/" class="hidden-sm-and-down">
         <mcity-logo class="logo-padding-top" />
@@ -250,10 +250,14 @@ export default {
       type: Boolean,
       default: true,
     },
+    sidebarStartState: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      drawer: false,
+      expandSiderbar: false,
       appMenu: false,
       clipped: false,
       avatarMenu: false,
@@ -264,6 +268,7 @@ export default {
     };
   },
   mounted() {
+    this.expandSiderbar = this.sidebarStartState
     this.setapplicationLinks();
   },
   methods: {
