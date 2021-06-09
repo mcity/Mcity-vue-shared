@@ -78,7 +78,9 @@
         @click="expandSiderbar = !expandSiderbar"
       />
       <router-link to="/" class="hidden-sm-and-down">
-        <mcity-logo class="logo-padding-top" />
+        <slot name="logo">
+          <mcity-logo class="logo-padding-top" />
+        </slot>
       </router-link>
       <v-toolbar-title class="subtitle" role="button" @click="goHome">
         {{ title }}
