@@ -1,6 +1,6 @@
 {
   "name": "@mcity/mcity-vue-shared",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Shared files for Mcity vue projects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

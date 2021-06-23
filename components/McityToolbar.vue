@@ -28,6 +28,7 @@
         >
           <v-list-item-action>
             <svg-icon
+              class="invertible"
               size="sm"
               url="https://static.um.city/icons/text-height-solid.svg"
             />
@@ -40,6 +41,7 @@
         <v-list-item :href="'/apidocs'" target="_blank">
           <v-list-item-action>
             <svg-icon
+              class="invertible"
               size="sm"
               url="https://static.um.city/icons/brackets-curly-solid.svg"
             />
@@ -50,6 +52,7 @@
         <v-list-item @click="getHelp">
           <v-list-item-action>
             <svg-icon
+              class="invertible"
               size="sm"
               url="https://static.um.city/icons/question-circle-solid.svg"
             />
@@ -60,6 +63,7 @@
         <v-list-item>
           <v-list-item-action>
             <svg-icon
+              class="invertible"
               :color="gray"
               size="sm"
               url="https://static.um.city/icons/applicationMoved.svg"
@@ -126,9 +130,10 @@
                     <v-list-item-action>
                       <svg-icon
                         v-if="item.lock"
+                        class="invertible"
                         url="https://static.um.city/icons/lock-solid.svg"
                       />
-                      <svg-icon v-else :url="item.svg" />
+                      <svg-icon v-else :url="item.svg" class="invertible" />
                     </v-list-item-action>
                     <v-list-item-content color="primary--text">
                       {{ item.text }}
@@ -176,7 +181,7 @@
                 Change Password
                 <svg-icon
                   :color="gray"
-                  class="ml-2"
+                  class="ml-2 invertible"
                   size="sm"
                   url="https://static.um.city/icons/fingerprint-solid.svg"
                 />
@@ -192,7 +197,7 @@
                 Logout
                 <svg-icon
                   :color="gray"
-                  class="ml-2"
+                  class="ml-2 invertible"
                   size="sm"
                   url="https://static.um.city/icons/sign-out-alt-solid.svg"
                 />
@@ -271,7 +276,7 @@ export default {
   },
   mounted() {
     this.expandSiderbar = this.sidebarStartState
-    this.setapplicationLinks();
+    this.setApplicationLinks();
   },
   methods: {
     listApplications(category) {
@@ -282,7 +287,7 @@ export default {
     getHelp() {
       window.location.href = "mailto:mcity-engineering@umich.edu";
     },
-    setapplicationLinks() {
+    setApplicationLinks() {
       const req = new XMLHttpRequest();
       req.onreadystatechange = function (vue) {
         if (this.readyState === XMLHttpRequest.DONE) {
