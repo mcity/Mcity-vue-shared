@@ -1,5 +1,5 @@
 {
-  "name": "@mcity/mcity-vue-shared",
+  "name": "@Mcity/mcity-vue-shared",
   "version": "2.0.8",
   "description": "Shared files for Mcity vue projects",
   "scripts": {
