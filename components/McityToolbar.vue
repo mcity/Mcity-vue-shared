@@ -7,7 +7,7 @@
       enable-resize-watcher
       fixed
       app
-      width="{{ width }}"
+      :width="width"
     >
       <template v-slot:activator="{ on }">
         <v-btn icon color="primary" dark v-on="on">
