@@ -7,7 +7,7 @@
       enable-resize-watcher
       fixed
       app
-      width="220"
+      width="{{ width }}"
     >
       <template v-slot:activator="{ on }">
         <v-btn icon color="primary" dark v-on="on">
@@ -260,6 +260,11 @@ export default {
     sidebarStartState: {
       type: Boolean,
       default: false,
+    },
+    width: {
+      required: false,
+      type: String,
+      default: "220"
     },
   },
   data() {
