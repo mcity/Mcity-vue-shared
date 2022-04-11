@@ -113,7 +113,7 @@
             </v-btn>
           </template>
           <v-list
-            style="max-height: 80vh"
+            style="max-height: 80vh; min-width: 800px"
             class="overflow-y-auto"
           >
             <v-container
@@ -353,5 +353,8 @@ export default {
 }
 .logo-padding-top {
   padding-top: 4px;
+}
+svg-icon {
+  height: 22px;
 }
 </style>
