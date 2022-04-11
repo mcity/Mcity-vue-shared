@@ -332,4 +332,7 @@ export default {
 .logo-padding-top {
   padding-top: 4px;
 }
+svg-icon {
+  height: 22px;
+}
 </style>
