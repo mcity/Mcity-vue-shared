@@ -92,7 +92,7 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y>
+        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y style="min-width:1000px">
           <template v-slot:activator="{ on }">
             <v-btn icon color="primary" dark v-on="on">
               <svg-icon
@@ -103,12 +103,12 @@
               />
             </v-btn>
           </template>
-          <v-list dense style="max-height: 80vh" class="overflow-y-auto">
+          <v-list dense style="min-width: 1000px; max-height: 80vh" class="overflow-y-auto">
             <v-container fluid grid-list-sm>
               <v-layout
                 v-for="(itemCat, indCat) in applicationCategories"
                 :key="indCat"
-                xs3
+                xs4
                 row
                 wrap
               >
@@ -331,5 +331,8 @@ export default {
 }
 .logo-padding-top {
   padding-top: 4px;
+}
+svg-icon {
+  height: 22px;
 }
 </style>
