@@ -18,8 +18,8 @@
               <svg-icon
                 color="white"
                 size="sm"
-                class="mt-1 sm"
-                url="https://static.um.city/icons/bars-solid.svg"
+                class="mt-1"
+                url="https://static.um.city/icons/bars-solid-custom.svg"
               />
             </v-btn>
           </template>
@@ -231,7 +231,7 @@ export default {
 
 <style>
 .nav-toggle-btn {
-  padding-left: 0px !important;
+  padding-left: 0px;
 }
 .mcity-menu-category-member {
   margin-left: 10px;
@@ -241,8 +241,8 @@ export default {
   padding-left: 20px;
 }
 .no-padding {
-  padding: 0 0 0 0 !important;
-  letter-spacing: inherit !important  ;
+  padding: 0 0 0 0;
+  letter-spacing: inherit ;
 }
 .min-content {
   min-width: 204px;
