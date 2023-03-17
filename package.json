@@ -14,5 +14,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mcity/Mcity-vue-shared.git"
+  },
+  "dependencies": {
+    "package.json": "^2.0.1"
   }
 }

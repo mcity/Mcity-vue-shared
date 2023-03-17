@@ -1,86 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer
-      v-model="expandSiderbar"
-      persistent
-      :clipped="true"
-      enable-resize-watcher
-      fixed
-      app
-      :width="width"
-    >
-      <template v-slot:activator="{ on }">
-        <v-btn icon color="primary" dark v-on="on">
-          <svg-icon
-            color="white"
-            size="xxs"
-            class="mt-1 mx-1"
-            url="https://static.um.city/icons/ellipsis-v-solid.svg"
-          />
-        </v-btn>
-      </template>
-      <v-list>
-        <slot name="overflow-buttons" />
-        <v-divider />
-        <v-list-item
-          v-if="showPresentationButton"
-          @click="$store.commit('updatePresentationMode')"
-        >
-          <v-list-item-action>
-            <svg-icon
-              class="invertible"
-              size="sm"
-              url="https://static.um.city/icons/text-height-solid.svg"
-            />
-          </v-list-item-action>
-          <v-list-item-content>
-            {{ presentationText }}
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item :href="'/apidocs'" target="_blank">
-          <v-list-item-action>
-            <svg-icon
-              class="invertible"
-              size="sm"
-              url="https://static.um.city/icons/brackets-curly-solid.svg"
-            />
-          </v-list-item-action>
-          <v-list-item-content> API Docs </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item @click="getHelp">
-          <v-list-item-action>
-            <svg-icon
-              class="invertible"
-              size="sm"
-              url="https://static.um.city/icons/question-circle-solid.svg"
-            />
-          </v-list-item-action>
-          <v-list-item-content> Help </v-list-item-content>
-        </v-list-item>
-        <v-divider />
-        <v-list-item>
-          <v-list-item-action>
-            <svg-icon
-              class="invertible"
-              :color="gray"
-              size="sm"
-              url="https://static.um.city/icons/applicationMoved.svg"
-            />
-          </v-list-item-action>
-          <v-list-item-content>
-            Apps have moved to the top right.
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <v-app-bar app dark color="primary" :clipped-left="true">
-      <v-app-bar-nav-icon
-        id="nav-toggle-btn"
-        color="white"
-        @click="expandSiderbar = !expandSiderbar"
-      />
       <router-link to="/" class="hidden-sm-and-down">
         <slot name="logo">
           <mcity-logo class="logo-padding-top" />
@@ -98,24 +18,26 @@
               <svg-icon
                 color="white"
                 size="sm"
-                class="mt-1"
-                url="https://static.um.city/icons/th-solid.svg"
+                class="mt-1 sm"
+                url="https://static.um.city/icons/bars-solid.svg"
               />
             </v-btn>
           </template>
-          <v-list dense style="min-width: 1000px; max-height: 80vh" class="overflow-y-auto">
+          <v-list dense style="min-width: 800px; max-height: 100vh; background-color:#f5c400" class="overflow-y-auto">
             <v-container fluid grid-list-sm>
               <v-layout
                 v-for="(itemCat, indCat) in applicationCategories"
                 :key="indCat"
                 xs4
-                row
+                column
                 wrap
               >
-                <v-list-item two-line v-if="itemCat"
-                  ><b>{{ itemCat }}</b
-                  ><v-divider
-                /></v-list-item>
+                <v-list-item
+                    two-line
+                    v-if="itemCat"
+                >
+                  <b>{{ itemCat.toUpperCase() }}</b>
+                </v-list-item>
 
                 <v-flex
                   v-for="(item, ind) in listApplications(itemCat)"
@@ -123,21 +45,15 @@
                   xs3
                 >
                   <v-list-item
-                    :href="isUserAdmin || !item.lock ? item.link : ''"
+                    :href="item.link"
                     target="_blank"
                     rel="noopener"
                   >
                     <v-list-item-action>
-                      <svg-icon
-                        v-if="item.lock"
-                        class="invertible"
-                        url="https://static.um.city/icons/lock-solid.svg"
-                      />
-                      <svg-icon v-else :url="item.svg" class="invertible" />
+                      <v-list-item-content class="mcity-menu-category-member" color="primary--text">
+                        {{ item.text }}
+                      </v-list-item-content>
                     </v-list-item-action>
-                    <v-list-item-content color="primary--text">
-                      {{ item.text }}
-                    </v-list-item-content>
                   </v-list-item>
                 </v-flex>
               </v-layout>
@@ -316,6 +232,9 @@ export default {
 <style>
 .nav-toggle-btn {
   padding-left: 0px !important;
+}
+.mcity-menu-category-member {
+  margin-left: 10px;
 }
 .subtitle {
   font-weight: 500;
