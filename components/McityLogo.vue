@@ -1,6 +1,6 @@
 <template>
   <div
-    class="logo"
+    class="mcity-logo"
     :style="{ width: width }"
   >
     <a
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-  .logo {
+  .mcity-logo {
     display: block;
   }
 </style>

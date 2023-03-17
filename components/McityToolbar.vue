@@ -3,10 +3,10 @@
     <v-app-bar app dark color="primary" :clipped-left="true">
       <router-link to="/" class="hidden-sm-and-down">
         <slot name="logo">
-          <mcity-logo class="logo-padding-top" />
+          <mcity-logo class="mcity-logo-padding-top" />
         </slot>
       </router-link>
-      <v-toolbar-title class="subtitle" role="button" @click="goHome">
+      <v-toolbar-title class="mcity-subtitle" role="button" @click="goHome">
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
@@ -71,9 +71,9 @@
               />
             </v-btn>
           </template>
-          <v-list class="min-content">
+          <v-list class="mcity-min-content">
             <v-list-item>
-              <v-list-item-content class="no-padding">
+              <v-list-item-content class="mcity-no-padding">
                 <v-list-item-title>
                   <a href="https://keys.um.city" target="_blank" rel="noopener">
                     {{ fullname }}
@@ -90,7 +90,7 @@
             <v-list-item>
               <v-btn
                 text
-                class="no-padding"
+                class="mcity-no-padding"
                 href="https://keys.um.city/password"
                 v-on="on"
               >
@@ -106,7 +106,7 @@
             <v-list-item>
               <v-btn
                 text
-                class="no-padding"
+                class="mcity-no-padding"
                 href="https://keys.um.city/logout"
                 v-on="on"
               >
@@ -230,25 +230,22 @@ export default {
 </script>
 
 <style>
-.nav-toggle-btn {
-  padding-left: 0px;
-}
 .mcity-menu-category-member {
   margin-left: 10px;
 }
-.subtitle {
+.mcity-subtitle {
   font-weight: 500;
   padding-left: 20px;
 }
-.no-padding {
+.mcity-no-padding {
   padding: 0 0 0 0;
   letter-spacing: inherit ;
 }
-.min-content {
+.mcity-min-content {
   min-width: 204px;
   width: min-content;
 }
-.logo-padding-top {
+.mcity-logo-padding-top {
   padding-top: 4px;
 }
 svg-icon {
