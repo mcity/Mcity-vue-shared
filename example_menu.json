@@ -1,0 +1,86 @@
+[
+    {
+        "icon": "fa-home",
+        "link": "https://members.um.city",
+        "text": "Home",
+        "svg": "https://static.um.city/icons/home-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-calendar-alt",
+        "link": "https://calendar.um.city/",
+        "text": "Events",
+        "svg": "https://static.um.city/icons/calendar-alt-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-chart-line",
+        "link": "https://projects.um.city",
+        "text": "Projects",
+        "svg": "https://static.um.city/icons/chart-line-regular.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-warehouse-alt",
+        "link": "https://garage.um.city/",
+        "text": "Data",
+        "svg": "https://static.um.city/icons/warehouse-alt-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-calendar-plus",
+        "link": "https://scheduling.um.city/",
+        "text": "Scheduling",
+        "svg": "https://static.um.city/icons/calendar-plus-regular.svg",
+        "lock": false,
+        "category": "Test Facility"
+    },
+    {
+        "icon": "fa-car-building",
+        "link": "https://skyline.mvillage.um.city/",
+        "text": "Mvillage",
+        "svg": "https://static.um.city/icons/car-building-solid.svg",
+        "lock": false,
+        "category": "Test Facility"
+    },
+    {
+        "icon": "fa-city",
+        "link": "https://skyline.um.city/",
+        "text": "Mcity OS",
+        "svg": "https://static.um.city/icons/city-solid.svg",
+        "lock": false,
+        "category": "Test Facility"
+    },
+    {
+        "icon": "fa-github",
+        "link": "https://github.com/mcity",
+        "text": "Github",
+        "svg": "https://static.um.city/icons/github-brands.svg",
+        "lock": false,
+        "category": "Developer"
+    },
+    {
+        "icon": "fa-brackets-curly",
+        "link": "https://api.um.city/",
+        "text": "API/Develop",
+        "svg": "https://static.um.city/icons/brackets-curly-solid.svg",
+        "lock": false,
+        "category": "Developer"
+    },
+    {
+        "icon": "fa-cogs",
+        "link": "https://transmission.um.city/",
+        "text": "Transmission",
+        "svg": "https://static.um.city/icons/cogs-solid.svg",
+        "lock": false,
+        "category": "Mcity Staff Utilities"
+    },
+    {
+        "icon": "fa-link",
+        "link": "https://go.um.city/",
+        "text": "URL Compress",
+        "svg": "https://static.um.city/icons/link-solid.svg",
+        "lock": false,
+        "category": "Mcity Staff Utilities"
+    }
+]

@@ -219,10 +219,17 @@ export default {
         }
         //Set Category list
         vue.applicationCategories = [
-          ...new Set(vue.applicationLinks.map((item) => item.category)),
+        ...new Set(
+            vue.applicationLinks.map((item) => {
+              if (!item.category || item.category === "") {
+                return item.text;
+              }
+              return item.category;
+            })
+          ),
         ];
       }.bind(req, this);
-      req.open("GET", "https://static.um.city/menu.json");
+      req.open("GET", "https://static.um.city/menu_v2.json");
       req.send();
     },
     goHome() {
