@@ -24,7 +24,7 @@
             </v-btn> 
           </template>
           <v-list dense style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
-            <v-container fluid grid-list-xl>
+            <v-container fluid grid-list-sm>
               <v-layout
                 v-for="(itemCat, indCat) in applicationCategories"
                 :key="indCat"
@@ -49,14 +49,14 @@
                     target="_blank"
                     rel="noopener"
                   >
-                    <v-list-item-action class="d-flex">
+                    <v-list-tile-action class="d-flex">
                       <v-list-item-content>
                         <svg-icon :url="item.svg" />
                       </v-list-item-content>
-                      <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px;">
+                      <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
                         {{ item.text }}
                       </v-list-item-content>
-                    </v-list-item-action>
+                    </v-list-tile-action>
                   </v-list-item>
                 </v-flex>
               </v-layout>
