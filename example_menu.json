@@ -14,17 +14,17 @@
         "lock": false
     },
     {
-        "icon": "fa-chart-line",
-        "link": "https://projects.um.city",
-        "text": "Projects",
-        "svg": "https://static.um.city/icons/chart-line-regular.svg",
-        "lock": false
-    },
-    {
         "icon": "fa-warehouse-alt",
         "link": "https://garage.um.city/",
         "text": "Data",
         "svg": "https://static.um.city/icons/warehouse-alt-solid.svg",
+        "lock": false
+    },
+	{
+        "icon": "fa-city",
+        "link": "https://mcity.umich.edu/",
+        "text": "Test Facility",
+        "svg": "https://static.um.city/icons/city-solid.svg",
         "lock": false
     },
     {
@@ -52,20 +52,18 @@
         "category": "Test Facility"
     },
     {
-        "icon": "fa-github",
-        "link": "https://github.com/mcity",
-        "text": "Github",
-        "svg": "https://static.um.city/icons/github-brands.svg",
-        "lock": false,
-        "category": "Developer"
+        "icon": "fa-database",
+        "link": "https://mcity.umich.edu",
+        "text": "Mobility Data Center",
+        "svg": "https://static.um.city/icons/database-solid.svg",
+        "lock": false
     },
     {
-        "icon": "fa-brackets-curly",
-        "link": "https://api.um.city/",
-        "text": "API/Develop",
-        "svg": "https://static.um.city/icons/brackets-curly-solid.svg",
-        "lock": false,
-        "category": "Developer"
+        "icon": "fa-chart-line",
+        "link": "https://projects.um.city",
+        "text": "Projects",
+        "svg": "https://static.um.city/icons/chart-line-regular.svg",
+        "lock": false
     },
     {
         "icon": "fa-cogs",
@@ -82,5 +80,52 @@
         "svg": "https://static.um.city/icons/link-solid.svg",
         "lock": false,
         "category": "Mcity Staff Utilities"
+    },
+    {
+        "icon": "fa-cogs",
+        "link": "https://go.um.city/",
+        "text": "Working Groups",
+        "svg": "https://static.um.city/icons/cogs-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-universal-access",
+        "link": "https://go.um.city/",
+        "text": "Accessibility",
+        "svg": "https://static.um.city/icons/universal-access-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-car",
+        "link": "https://go.um.city/",
+        "text": "CAV",
+        "svg": "https://static.um.city/icons/car-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-shield-halved",
+        "link": "https://go.um.city/",
+        "text": "Cybersecurity",
+        "svg": "https://static.um.city/icons/shield-halved-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-scale-balanced",
+        "link": "https://go.um.city/",
+        "text": "Legal, Liability & Insuance",
+        "svg": "https://static.um.city/icons/scale-balanced-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-comments",
+        "link": "https://go.um.city/",
+        "text": "Outreach",
+        "svg": "https://static.um.city/icons/comments-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
     }
 ]
