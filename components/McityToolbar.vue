@@ -21,10 +21,10 @@
                 class="mt-1"
                 url="https://static.um.city/icons/bars-solid-custom.svg"
               />
-            </v-btn>
+            </v-btn> 
           </template>
-          <v-list dense style="min-width: 800px; max-height: 100vh; background-color:#f5c400" class="overflow-y-auto">
-            <v-container fluid grid-list-sm>
+          <v-list dense style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
+            <v-container fluid grid-list-xl>
               <v-layout
                 v-for="(itemCat, indCat) in applicationCategories"
                 :key="indCat"
@@ -49,8 +49,11 @@
                     target="_blank"
                     rel="noopener"
                   >
-                    <v-list-item-action>
-                      <v-list-item-content class="mcity-menu-category-member" color="primary--text">
+                    <v-list-item-action class="d-flex">
+                      <v-list-item-content>
+                        <svg-icon :url="item.svg" />
+                      </v-list-item-content>
+                      <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px;">
                         {{ item.text }}
                       </v-list-item-content>
                     </v-list-item-action>
@@ -232,6 +235,7 @@ export default {
 <style>
 .mcity-menu-category-member {
   margin-left: 10px;
+  overflow:visible;
 }
 .mcity-subtitle {
   font-weight: 500;
@@ -251,4 +255,6 @@ export default {
 svg-icon {
   height: 22px;
 }
+
 </style>
+
