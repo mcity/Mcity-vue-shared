@@ -49,14 +49,14 @@
                     target="_blank"
                     rel="noopener"
                   >
-                    <v-list-tile-action class="d-flex">
+                    <v-list-action-item class="d-flex" style="padding-left:66px;">
                       <v-list-item-content>
                         <svg-icon :url="item.svg" />
                       </v-list-item-content>
                       <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
                         {{ item.text }}
                       </v-list-item-content>
-                    </v-list-tile-action>
+                    </v-list-action-item>
                   </v-list-item>
                 </v-flex>
               </v-layout>
