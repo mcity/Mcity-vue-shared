@@ -32,15 +32,16 @@
                 column
                 wrap
               >
-                <v-list-item
-                    two-line
-                    v-if="itemCat"
-                >
-                  <b>{{ itemCat.toUpperCase() }}</b>
+                <v-list-item>
+                  <svg-icon :url="itemCat.svg" />
+                  <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                    {{itemCat.text.toUpperCase()}}
+                  </v-list-item-content>
+                  
                 </v-list-item>
 
                 <v-flex
-                  v-for="(item, ind) in listApplications(itemCat)"
+                  v-for="(item, ind) in listApplications(itemCat.text)"
                   :key="ind"
                   xs3
                 >
@@ -50,7 +51,7 @@
                     rel="noopener"
                   >
                     <v-list-action-item class="d-flex" style="padding-left:66px;">
-                      <v-list-item-content>
+                      <v-list-item-content color="primary--text">
                         <svg-icon :url="item.svg" />
                       </v-list-item-content>
                       <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
@@ -218,16 +219,13 @@ export default {
           vue.applicationLinks = JSON.parse(req.responseText);
         }
         //Set Category list
-        vue.applicationCategories = [
-        ...new Set(
-            vue.applicationLinks.map((item) => {
-              if (!item.category || item.category === "") {
-                return item.text;
-              }
-              return item.category;
+        vue.applicationCategories = 
+        vue.applicationLinks.filter(function (e) {
+              return !e.category || e.category === ""; 
             })
-          ),
-        ];
+        ;
+        console.log(vue.applicationLinks)
+        console.log(vue.applicationCategories)
       }.bind(req, this);
       req.open("GET", "https://static.um.city/menu_v2.json");
       req.send();
