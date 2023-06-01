@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app dark color="primary" :clipped-left="true">
+    <v-app-bar app dark color="primary" :clipped-left="true" height="45px">
       <router-link to="/" class="hidden-sm-and-down">
         <slot name="logo">
           <mcity-logo class="mcity-logo-padding-top" />
