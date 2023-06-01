@@ -56,7 +56,7 @@
                   >
                     <v-list-action-item class="d-flex" style="padding-left:66px;">
                       <svg-icon :url="item.svg" />
-                      <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                      <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; white-space: nowrap;">
                         {{ item.text }}
                       </v-list-item-content>
                     </v-list-action-item>
