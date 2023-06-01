@@ -36,6 +36,7 @@
                   <v-list-item
                     :href="itemCat.link"
                     target="_blank"
+                    :class="getForMembersClass(itemCat.text)"
                     >
                     <svg-icon :url="itemCat.svg" />
                     <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
@@ -49,18 +50,18 @@
                   :key="ind"
                   xs3
                 >
-                  <v-list-item
-                    :href="item.link"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <v-list-action-item class="d-flex" style="padding-left:66px;">
-                      <svg-icon :url="item.svg" />
-                      <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; white-space: nowrap;">
-                        {{ item.text }}
-                      </v-list-item-content>
-                    </v-list-action-item>
-                  </v-list-item>
+                <v-list-item
+                  :href="item.link"
+                  target="_blank"
+                  rel="noopener"
+                >  
+                  <div class="d-flex" style="padding-left:66px;">
+                    <svg-icon :url="item.svg" />
+                    <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; white-space: nowrap;">
+                      {{ item.text }}
+                    </v-list-item-content>
+                  </div>
+                </v-list-item>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -211,6 +212,10 @@ export default {
         return e.category == category;
       });
     },
+    getForMembersClass(tileText) {
+      console.log(tileText)
+      return tileText === "FOR MEMBERS" ? "bg-members" : "";
+    },
     getHelp() {
       window.location.href = "mailto:mcity-engineering@umich.edu";
     },
@@ -238,6 +243,9 @@ export default {
 </script>
 
 <style>
+.bg-members {
+  background-color: #C55311;
+}
 .mcity-menu-category-member {
   margin-left: 10px;
   overflow:visible;
