@@ -13,10 +13,10 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px">
+        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="77px">
           <template v-slot:activator="{ on }">
-              <v-btn icon color="primary" dark v-on="on">
-                <div style="color:white; font-size: 24px;"><i class="fa fa-bars"></i></div>
+              <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
+                <div style="color:white; font-size: 24px;">MENU <i class="fa fa-bars"></i></div>
               </v-btn> 
           </template>
           <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
@@ -68,7 +68,7 @@
         </v-menu>
         <v-menu content-class="elevation-1" left v-if="showUserMenu" nudge-right="15px" v-model="avatarMenu" offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn icon color="primary" dark v-on="on">
+            <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
               <svg-icon
                 color="white"
                 size="sm"
@@ -77,7 +77,7 @@
               />
             </v-btn>
           </template>
-          <v-list class="mcity-min-content">
+          <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-list-item>
               <v-list-item-content class="mcity-no-padding">
                 <v-list-item-title>
