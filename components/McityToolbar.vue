@@ -42,7 +42,7 @@
                       :class="getForMembersClass(itemCat.text, hover)"
                       >
                       <svg-icon :url="itemCat.svg" :style="getFontColorForMembers(itemCat.text)" />
-                      <v-list-item-content class="mcity-menu-category-member" :style="getFontColorForMembers(itemCat.text)" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                      <v-list-item-content class="mcity-menu-category-member" :style="getFontColorForMembers(itemCat.text)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
                         {{itemCat.text.toUpperCase()}}
                       </v-list-item-content>
                       
@@ -61,7 +61,7 @@
                 >  
                   <div class="d-flex" style="padding-left:66px;">
                     <svg-icon :url="item.svg" />
-                    <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; white-space: nowrap;">
+                    <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; font-weight: 300; white-space: nowrap;">
                       {{ item.text }}
                     </v-list-item-content>
                   </div>
