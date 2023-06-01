@@ -6,7 +6,8 @@
           <mcity-logo class="mcity-logo-padding-top" />
         </slot>
       </router-link>
-      <v-toolbar-title class="mcity-subtitle" role="button" @click="goHome">
+      <v-spacer></v-spacer>
+      <v-toolbar-title class="mcity-subtitle" role="button" @click="goHome" >
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
