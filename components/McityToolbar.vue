@@ -12,7 +12,7 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y style="min-width:1000px">
+        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px" style="min-width:1000px">
           <template v-slot:activator="{ on }">
             <v-btn icon color="primary" dark v-on="on">
               <svg-icon
@@ -51,9 +51,7 @@
                     rel="noopener"
                   >
                     <v-list-action-item class="d-flex" style="padding-left:66px;">
-                      <v-list-item-content color="primary--text">
-                        <svg-icon :url="item.svg" />
-                      </v-list-item-content>
+                      <svg-icon :url="item.svg" />
                       <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
                         {{ item.text }}
                       </v-list-item-content>
