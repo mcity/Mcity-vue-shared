@@ -7,13 +7,6 @@
         "lock": false
     },
     {
-        "icon": "fa-calendar-alt",
-        "link": "https://calendar.um.city/",
-        "text": "Events",
-        "svg": "https://static.um.city/icons/calendar-alt-solid.svg",
-        "lock": false
-    },
-    {
         "icon": "fa-warehouse-alt",
         "link": "https://garage.um.city/",
         "text": "Data",
@@ -71,15 +64,6 @@
         "text": "Transmission",
         "svg": "https://static.um.city/icons/cogs-solid.svg",
         "lock": false,
-        "category": "Mcity Staff Utilities"
-    },
-    {
-        "icon": "fa-link",
-        "link": "https://go.um.city/",
-        "text": "URL Compress",
-        "svg": "https://static.um.city/icons/link-solid.svg",
-        "lock": false,
-        "category": "Mcity Staff Utilities"
     },
     {
         "icon": "fa-cogs",
