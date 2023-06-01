@@ -63,7 +63,7 @@
         "link": "https://transmission.um.city/",
         "text": "Transmission",
         "svg": "https://static.um.city/icons/cogs-solid.svg",
-        "lock": false,
+        "lock": false
     },
     {
         "icon": "fa-cogs",
