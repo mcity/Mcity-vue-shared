@@ -33,17 +33,20 @@
                 wrap
               >
                 <v-flex xs3>
-                  <v-list-item
-                    :href="itemCat.link"
-                    target="_blank"
-                    :class="getForMembersClass(itemCat.text)"
-                    >
-                    <svg-icon :url="itemCat.svg" />
-                    <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
-                      {{itemCat.text.toUpperCase()}}
-                    </v-list-item-content>
-                    
-                  </v-list-item>
+                  <v-hover>
+                    <v-list-item
+                      slot-scope="{ hover }"
+                      :href="itemCat.link"
+                      target="_blank"
+                      :class="getForMembersClass(itemCat.text, hover)"
+                      >
+                      <svg-icon :url="itemCat.svg" />
+                      <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                        {{itemCat.text.toUpperCase()}}
+                      </v-list-item-content>
+                      
+                    </v-list-item>
+                  </v-hover>
                 </v-flex>
                 <v-flex
                   v-for="(item, ind) in listApplications(itemCat.text)"
@@ -212,9 +215,9 @@ export default {
         return e.category == category;
       });
     },
-    getForMembersClass(tileText) {
-      console.log(tileText)
-      return tileText === "FOR MEMBERS" ? "bg-members" : "";
+    getForMembersClass(tileText, hover) {      
+      console.log(tileText, hover)
+      return tileText === "FOR MEMBERS" ? (hover ? "bg-members-hover" : "bg-members") : "";
     },
     getHelp() {
       window.location.href = "mailto:mcity-engineering@umich.edu";
@@ -245,6 +248,9 @@ export default {
 <style>
 .bg-members {
   background-color: #C55311;
+}
+.bg-members-hover {
+  background-color: #9F3F07;
 }
 .mcity-menu-category-member {
   margin-left: 10px;
