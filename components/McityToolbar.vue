@@ -6,7 +6,7 @@
           <mcity-logo class="mcity-logo-padding-top" />
         </slot>
       </router-link>
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-toolbar-title class="mcity-subtitle" role="button" @click="goHome" >
         {{ title }}
       </v-toolbar-title>
@@ -15,14 +15,14 @@
         <slot name="buttons" />
         <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px">
           <template v-slot:activator="{ on }">
-            <v-btn icon color="primary" dark v-on="on">
-              <svg-icon
-                color="white"
-                size="sm"
-                class="mt-1"
-                url="https://static.um.city/icons/bars-solid-custom.svg"
-              />
-            </v-btn> 
+              <v-btn icon color="primary" dark v-on="on">
+                  <svg-icon
+                    color="white"
+                    size="sm"
+                    class="mt-1"
+                    url="https://static.um.city/icons/bars-solid-custom.svg"
+                  />
+              </v-btn> 
           </template>
           <v-list dense style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-container fluid grid-list-sm>
@@ -261,7 +261,7 @@ export default {
 }
 .mcity-subtitle {
   font-weight: 500;
-  padding-left: 20px;
+  padding-left: 0px;
 }
 .mcity-no-padding {
   padding: 0 0 0 0;
