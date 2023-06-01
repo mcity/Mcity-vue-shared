@@ -22,8 +22,8 @@
           <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-container fluid grid-list-sm>
               <v-layout
-                v-for="(itemCat, indCat) in applicationCategories"
-                :key="indCat"
+                v-for="(itemCategory, categoryIndex) in applicationCategories"
+                :key="categoryIndex"
                 xs4
                 column
                 wrap
@@ -32,21 +32,21 @@
                   <v-hover>
                     <v-list-item
                       slot-scope="{ hover }"
-                      :href="itemCat.link"
+                      :href="itemCategory.link"
                       target="_blank"
-                      :class="getForMembersClass(itemCat.text, hover)"
+                      :class="getCssClassForCategory(itemCategory.text, hover)"
                       >
-                      <svg-icon :url="itemCat.svg" :style="getFontColorForMembers(itemCat.text)" />
-                      <v-list-item-content class="mcity-menu-category-member" :style="getFontColorForMembers(itemCat.text)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
-                        {{itemCat.text.toUpperCase()}}
+                      <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory.text)" />
+                      <v-list-item-content class="mcity-menu-category-member" :style="getFontColorForMembersCategory(itemCategory.text)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
+                        {{itemCategory.text.toUpperCase()}}
                       </v-list-item-content>
                       
                     </v-list-item>
                   </v-hover>
                 </v-flex>
                 <v-flex
-                  v-for="(item, ind) in listApplications(itemCat.text)"
-                  :key="ind"
+                  v-for="(item, index) in getCategoryMembers(itemCategory.text)"
+                  :key="index"
                   xs3
                 >
                 <v-list-item
@@ -206,15 +206,15 @@ export default {
     this.setApplicationLinks();
   },
   methods: {
-    listApplications(category) {
+    getCategoryMembers(category) {
       return this.applicationLinks.filter(function (e) {
         return e.category == category;
       });
     },
-    getFontColorForMembers(tileText) {
+    getFontColorForMembersCategory(tileText) {
       return tileText === "FOR MEMBERS" ? "color:white" : "";
     },
-    getForMembersClass(tileText, hover) {      
+    getCssClassForCategory(tileText, hover) {      
       return tileText === "FOR MEMBERS" ? (hover ? "bg-members-hover" : "bg-members") : "";
     },
     getHelp() {
