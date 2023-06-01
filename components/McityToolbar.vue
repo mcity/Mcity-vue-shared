@@ -32,14 +32,18 @@
                 column
                 wrap
               >
-                <v-list-item>
-                  <svg-icon :url="itemCat.svg" />
-                  <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
-                    {{itemCat.text.toUpperCase()}}
-                  </v-list-item-content>
-                  
-                </v-list-item>
-
+                <v-flex xs3>
+                  <v-list-item
+                    :href="itemCat.link"
+                    target="_blank"
+                    >
+                    <svg-icon :url="itemCat.svg" />
+                    <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                      {{itemCat.text.toUpperCase()}}
+                    </v-list-item-content>
+                    
+                  </v-list-item>
+                </v-flex>
                 <v-flex
                   v-for="(item, ind) in listApplications(itemCat.text)"
                   :key="ind"
