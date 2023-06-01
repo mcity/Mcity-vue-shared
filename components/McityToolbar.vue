@@ -12,7 +12,7 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px" style="min-width:1000px">
+        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px">
           <template v-slot:activator="{ on }">
             <v-btn icon color="primary" dark v-on="on">
               <svg-icon
@@ -62,7 +62,7 @@
             </v-container>
           </v-list>
         </v-menu>
-        <v-menu left v-if="showUserMenu" v-model="avatarMenu" offset-y>
+        <v-menu left v-if="showUserMenu" nudge-right="15px" v-model="avatarMenu" offset-y>
           <template v-slot:activator="{ on }">
             <v-btn icon color="primary" dark v-on="on">
               <svg-icon
