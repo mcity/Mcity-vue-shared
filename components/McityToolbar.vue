@@ -226,8 +226,6 @@ export default {
               return !e.category || e.category === ""; 
             })
         ;
-        console.log(vue.applicationLinks)
-        console.log(vue.applicationCategories)
       }.bind(req, this);
       req.open("GET", "https://static.um.city/menu_v2.json");
       req.send();
