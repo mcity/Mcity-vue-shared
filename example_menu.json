@@ -115,7 +115,7 @@
     {
         "icon": "fa-scale-balanced",
         "link": "https://go.um.city/",
-        "text": "Legal, Liability & Insuance",
+        "text": "Legal, Liability & Insurance",
         "svg": "https://static.um.city/icons/scale-balanced-solid.svg",
         "lock": false,
         "category": "Working Groups"
@@ -127,5 +127,12 @@
         "svg": "https://static.um.city/icons/comments-solid.svg",
         "lock": false,
         "category": "Working Groups"
+    },
+    {
+        "icon": "fa-user-group",
+        "link": "https://members.um.city/",
+        "text": "FOR MEMBERS",
+        "svg": "https://static.um.city/icons/user-group-solid.svg",
+        "lock": false
     }
 ]
