@@ -8,9 +8,6 @@
       title="title"
     >
       <template v-slot:buttons >
-        <v-btn text>
-          test button
-        </v-btn>
       </template>
     </mcity-toolbar>
   </v-app>

@@ -1,68 +1,74 @@
 <template>
   <div>
-    <v-app-bar app dark color="primary" :clipped-left="true">
+    <v-app-bar app dark color="primary" :clipped-left="true" height="45px">
       <router-link to="/" class="hidden-sm-and-down">
         <slot name="logo">
           <mcity-logo class="mcity-logo-padding-top" />
         </slot>
       </router-link>
-      <v-toolbar-title class="mcity-subtitle" role="button" @click="goHome">
+      <v-spacer />
+      <v-toolbar-title class="mcity-subtitle">
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y style="min-width:1000px">
+        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="77px">
           <template v-slot:activator="{ on }">
-            <v-btn icon color="primary" dark v-on="on">
-              <svg-icon
-                color="white"
-                size="sm"
-                class="mt-1"
-                url="https://static.um.city/icons/bars-solid-custom.svg"
-              />
-            </v-btn>
+              <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
+                <div style="color:white; font-size: 24px;">MENU <i class="fa fa-bars"></i></div>
+              </v-btn> 
           </template>
-          <v-list dense style="min-width: 800px; max-height: 100vh; background-color:#f5c400" class="overflow-y-auto">
+          <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-container fluid grid-list-sm>
               <v-layout
-                v-for="(itemCat, indCat) in applicationCategories"
-                :key="indCat"
+                v-for="(itemCategory, categoryIndex) in applicationCategories"
+                :key="categoryIndex"
                 xs4
                 column
                 wrap
               >
-                <v-list-item
-                    two-line
-                    v-if="itemCat"
-                >
-                  <b>{{ itemCat.toUpperCase() }}</b>
-                </v-list-item>
-
+                <v-flex xs3>
+                  <v-hover>
+                    <v-list-item
+                      slot-scope="{ hover }"
+                      :href="itemCategory.link"
+                      target="_blank"
+                      :class="getCssClassForCategory(itemCategory.text, hover)"
+                      >
+                      <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory.text)" />
+                      <v-list-item-content class="mcity-menu-category-member" :style="getFontColorForMembersCategory(itemCategory.text)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
+                        {{itemCategory.text.toUpperCase()}}
+                      </v-list-item-content>
+                      
+                    </v-list-item>
+                  </v-hover>
+                </v-flex>
                 <v-flex
-                  v-for="(item, ind) in listApplications(itemCat)"
-                  :key="ind"
+                  v-for="(item, index) in getCategoryMembers(itemCategory.text)"
+                  :key="index"
                   xs3
                 >
-                  <v-list-item
-                    :href="item.link"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <v-list-item-action>
-                      <v-list-item-content class="mcity-menu-category-member" color="primary--text">
-                        {{ item.text }}
-                      </v-list-item-content>
-                    </v-list-item-action>
-                  </v-list-item>
+                <v-list-item
+                  :href="item.link"
+                  target="_blank"
+                  rel="noopener"
+                >  
+                  <div class="d-flex" style="padding-left:66px;">
+                    <svg-icon :url="item.svg" />
+                    <v-list-item-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; font-weight: 300; white-space: nowrap;">
+                      {{ item.text }}
+                    </v-list-item-content>
+                  </div>
+                </v-list-item>
                 </v-flex>
               </v-layout>
             </v-container>
           </v-list>
         </v-menu>
-        <v-menu left v-if="showUserMenu" v-model="avatarMenu" offset-y>
+        <v-menu content-class="elevation-1" left v-if="showUserMenu" nudge-right="15px" v-model="avatarMenu" offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn icon color="primary" dark v-on="on">
+            <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
               <svg-icon
                 color="white"
                 size="sm"
@@ -71,7 +77,7 @@
               />
             </v-btn>
           </template>
-          <v-list class="mcity-min-content">
+          <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-list-item>
               <v-list-item-content class="mcity-no-padding">
                 <v-list-item-title>
@@ -200,10 +206,16 @@ export default {
     this.setApplicationLinks();
   },
   methods: {
-    listApplications(category) {
+    getCategoryMembers(category) {
       return this.applicationLinks.filter(function (e) {
         return e.category == category;
       });
+    },
+    getFontColorForMembersCategory(tileText) {
+      return tileText === "FOR MEMBERS" ? "color:white" : "";
+    },
+    getCssClassForCategory(tileText, hover) {      
+      return tileText === "FOR MEMBERS" ? (hover ? "bg-members-hover" : "bg-members") : "";
     },
     getHelp() {
       window.location.href = "mailto:mcity-engineering@umich.edu";
@@ -215,27 +227,33 @@ export default {
           vue.applicationLinks = JSON.parse(req.responseText);
         }
         //Set Category list
-        vue.applicationCategories = [
-          ...new Set(vue.applicationLinks.map((item) => item.category)),
-        ];
+        vue.applicationCategories = 
+        vue.applicationLinks.filter(function (e) {
+              return !e.category || e.category === ""; 
+            })
+        ;
       }.bind(req, this);
-      req.open("GET", "https://static.um.city/menu.json");
+      req.open("GET", "https://static.um.city/menu_v2.json");
       req.send();
-    },
-    goHome() {
-      this.$router.push("/");
     },
   },
 };
 </script>
 
 <style>
+.bg-members {
+  background-color: #C55311;
+}
+.bg-members-hover {
+  background-color: #9F3F07;
+}
 .mcity-menu-category-member {
   margin-left: 10px;
+  overflow:visible;
 }
 .mcity-subtitle {
   font-weight: 500;
-  padding-left: 20px;
+  padding-left: 0px;
 }
 .mcity-no-padding {
   padding: 0 0 0 0;
@@ -251,4 +269,6 @@ export default {
 svg-icon {
   height: 22px;
 }
+
 </style>
+

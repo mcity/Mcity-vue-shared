@@ -1,0 +1,122 @@
+[
+    {
+        "icon": "fa-home",
+        "link": "https://members.um.city",
+        "text": "Home",
+        "svg": "https://static.um.city/icons/home-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-warehouse-alt",
+        "link": "https://garage.um.city/",
+        "text": "Data",
+        "svg": "https://static.um.city/icons/warehouse-alt-solid.svg",
+        "lock": false
+    },
+	{
+        "icon": "fa-city",
+        "link": "https://mcity.umich.edu/",
+        "text": "Test Facility",
+        "svg": "https://static.um.city/icons/city-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-calendar-plus",
+        "link": "https://scheduling.um.city/",
+        "text": "Scheduling",
+        "svg": "https://static.um.city/icons/calendar-plus-regular.svg",
+        "lock": false,
+        "category": "Test Facility"
+    },
+    {
+        "icon": "fa-car-building",
+        "link": "https://skyline.mvillage.um.city/",
+        "text": "Mvillage",
+        "svg": "https://static.um.city/icons/car-building-solid.svg",
+        "lock": false,
+        "category": "Test Facility"
+    },
+    {
+        "icon": "fa-city",
+        "link": "https://skyline.um.city/",
+        "text": "Mcity OS",
+        "svg": "https://static.um.city/icons/city-solid.svg",
+        "lock": false,
+        "category": "Test Facility"
+    },
+    {
+        "icon": "fa-database",
+        "link": "https://mcity.umich.edu",
+        "text": "Mobility Data Center",
+        "svg": "https://static.um.city/icons/database-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-chart-line",
+        "link": "https://projects.um.city",
+        "text": "Projects",
+        "svg": "https://static.um.city/icons/chart-line-regular.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-cogs",
+        "link": "https://transmission.um.city/",
+        "text": "Transmission",
+        "svg": "https://static.um.city/icons/cogs-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-cogs",
+        "link": "https://go.um.city/",
+        "text": "Working Groups",
+        "svg": "https://static.um.city/icons/cogs-solid.svg",
+        "lock": false
+    },
+    {
+        "icon": "fa-universal-access",
+        "link": "https://go.um.city/",
+        "text": "Accessibility",
+        "svg": "https://static.um.city/icons/universal-access-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-car",
+        "link": "https://go.um.city/",
+        "text": "CAV",
+        "svg": "https://static.um.city/icons/car-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-shield-halved",
+        "link": "https://go.um.city/",
+        "text": "Cybersecurity",
+        "svg": "https://static.um.city/icons/shield-halved-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-scale-balanced",
+        "link": "https://go.um.city/",
+        "text": "Legal, Liability & Insurance",
+        "svg": "https://static.um.city/icons/scale-balanced-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-comments",
+        "link": "https://go.um.city/",
+        "text": "Outreach",
+        "svg": "https://static.um.city/icons/comments-solid.svg",
+        "lock": false,
+        "category": "Working Groups"
+    },
+    {
+        "icon": "fa-user-group",
+        "link": "https://members.um.city/",
+        "text": "FOR MEMBERS",
+        "svg": "https://static.um.city/icons/user-group-solid.svg",
+        "lock": false
+    }
+]
