@@ -19,7 +19,7 @@
                 <div style="color:white; font-size: 24px;">MENU <i class="fa fa-bars"></i></div>
               </v-btn> 
           </template>
-          <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
+          <v-list compact style="min-width: 400px; max-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-container fluid grid-list-sm>
               <v-layout
                 v-for="(itemCategory, categoryIndex) in applicationCategories"
@@ -77,7 +77,7 @@
               />
             </v-btn>
           </template>
-          <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
+          <v-list compact style="min-width: 400px; max-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-list-item>
               <v-list-item-content class="mcity-no-padding">
                 <v-list-item-title>
