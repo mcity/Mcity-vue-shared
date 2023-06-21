@@ -72,7 +72,7 @@
               <svg-icon
                 color="white"
                 size="sm"
-                class="mt-1"
+                class="mcity-user-icon mt-1"
                 url="https://static.um.city/icons/user-circle-solid.svg"
               />
             </v-btn>
@@ -265,6 +265,9 @@ export default {
 }
 .mcity-logo-padding-top {
   padding-top: 4px;
+}
+.mcity-user-icon {
+  font-size: 16px;
 }
 svg-icon {
   height: 22px;
