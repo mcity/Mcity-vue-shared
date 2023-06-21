@@ -1,11 +1,11 @@
 {
   "name": "@Mcity/mcity-vue-shared",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Shared files for Mcity vue projects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ryan Lewis and Vince Belanger",
+  "author": "Mcity Engineering",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mcity/Mcity-vue-shared/issues"

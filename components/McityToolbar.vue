@@ -91,7 +91,7 @@
               </v-list-item-content>
             </v-list-item>
           </v-list>
-          <v-divider />
+          <v-divider style="margin:0px;"/>
           <v-list>
             <v-list-item>
               <v-btn
