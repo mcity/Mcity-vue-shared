@@ -33,7 +33,6 @@
                     <v-list-item
                       slot-scope="{ hover }"
                       :href="itemCategory.link"
-                      target="_blank"
                       :class="getCssClassForCategory(itemCategory.text, hover)"
                       >
                       <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory.text)" />
@@ -51,7 +50,6 @@
                 >
                 <v-list-item
                   :href="item.link"
-                  target="_blank"
                   rel="noopener"
                 >  
                   <div class="d-flex" style="padding-left:66px;">
@@ -81,7 +79,7 @@
             <v-list-item>
               <v-list-item-content class="mcity-no-padding">
                 <v-list-item-title>
-                  <a href="https://keys.um.city" target="_blank" rel="noopener" style="font-size: 20px;">
+                  <a href="https://keys.um.city" rel="noopener" style="font-size: 20px;">
                     {{ fullname }}
                   </a>
                 </v-list-item-title>

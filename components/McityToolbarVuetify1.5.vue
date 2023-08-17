@@ -29,7 +29,6 @@
 
         <v-list-tile
           :href="'/apidocs'"
-          target="_blank"
         >
           <v-list-tile-action>
             <svg-icon
@@ -139,7 +138,6 @@
                   >
                     <v-list-tile
                       :href="isUserAdmin || !item.lock ? item.link : ''"
-                      target="_blank"
                       rel="noopener"
                     >
                       <v-list-tile-action>
@@ -189,7 +187,6 @@
                 <v-list-tile-title>
                   <a
                     href="https://keys.um.city"
-                    target="_blank"
                     rel="noopener"
                   >
                     {{ fullname }}
