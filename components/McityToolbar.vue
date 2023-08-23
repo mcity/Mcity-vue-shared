@@ -112,7 +112,7 @@
               <v-btn
                 text
                 class="mcity-no-padding"
-                href="https://keys.um.city/logout"
+                :href="logoutUrl"
                 v-on="on"
                 style="font-size: 20px;"
               >
@@ -188,6 +188,11 @@ export default {
       type: String,
       default: "220"
     },
+    logoutUrl: {
+      required: false,
+      type: String,
+      default: "https://keys.um.city/logout"
+    }
   },
   data() {
     return {
