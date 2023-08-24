@@ -208,9 +208,11 @@ export default {
   },
   beforeDestroy() {
     document.removeEventListener('click', this.handleClickOutside);
+    document.removeEventListener('touchstart', this.handleClickOutside);
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('touchstart', this.handleClickOutside);
     this.expandSiderbar = this.sidebarStartState
     this.setApplicationLinks();
   },
