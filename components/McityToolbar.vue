@@ -13,7 +13,7 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y allow-overflow nudge-right="77px">
+        <v-menu @touchstart.stop content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y allow-overflow nudge-right="77px">
           <template v-slot:activator="{ on }">
               <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
                 <div style="color:white; font-size: 24px;">MENU <i class="fa fa-bars"></i></div>
@@ -64,7 +64,7 @@
             </v-container>
           </v-list>
         </v-menu>
-        <v-menu content-class="elevation-1" left v-if="showUserMenu" nudge-right="15px" v-model="avatarMenu" offset-y>
+        <v-menu @touchstart.stop content-class="elevation-1" left v-if="showUserMenu" nudge-right="15px" v-model="avatarMenu" offset-y>
           <template v-slot:activator="{ on }">
             <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
               <svg-icon
