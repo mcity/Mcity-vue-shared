@@ -206,7 +206,11 @@ export default {
       on: {},
     };
   },
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleClickOutside);
+  },
   mounted() {
+    document.addEventListener('click', this.handleClickOutside);
     this.expandSiderbar = this.sidebarStartState
     this.setApplicationLinks();
   },
@@ -241,6 +245,12 @@ export default {
       req.open("GET", "https://static.um.city/menu_v2.json");
       req.send();
     },
+    handleClickOutside(event) {
+    if (!this.$el.contains(event.target)) {
+        this.appMenu = false;
+        this.avatarMenu = false;
+    }
+},
   },
 };
 </script>
