@@ -1,79 +1,11 @@
 <template>
   <div>
-    <v-navigation-drawer
-      v-model="drawer"
-      persistent
-      :clipped="true"
-      enable-resize-watcher
-      fixed
-      app
-      width="220"
-    >
-      <v-list>
-        <slot name="overflow-buttons" />
-        <v-divider />
-        <v-list-tile
-          v-if="showPresentationButton"
-          @click="$store.commit('updatePresentationMode')"
-        >
-          <v-list-tile-action>
-            <svg-icon
-              size="sm"
-              url="https://static.um.city/icons/text-height-solid.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content>
-            {{ presentationText }}
-          </v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-tile
-          :href="'/apidocs'"
-        >
-          <v-list-tile-action>
-            <svg-icon
-              size="sm"
-              url="https://static.um.city/icons/brackets-curly-solid.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content> API Docs </v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-tile @click="getHelp">
-          <v-list-tile-action>
-            <svg-icon
-              size="sm"
-              url="https://static.um.city/icons/question-circle-solid.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content> Help </v-list-tile-content>
-        </v-list-tile>
-        <v-divider />
-        <v-list-tile>
-          <v-list-tile-action>
-            <svg-icon
-              :color="gray"
-              size="sm"
-              url="https://static.um.city/icons/applicationMoved.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content>
-            Apps have moved to the top right.
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <v-toolbar
       app
       dark
       color="primary"
       :clipped-left="true"
     >
-      <v-toolbar-side-icon
-        id="nav-toggle-btn"
-        @click="drawer = !drawer"
-      />
-
       <router-link
         to="/"
         class="hidden-sm-and-down"
@@ -106,13 +38,13 @@
               <svg-icon
                 color="white"
                 size="sm"
-                class="mt-1"
-                url="https://static.um.city/icons/th-solid.svg"
+                class="mt-1 sm"
+                url="https://static.um.city/icons/bars-solid-custom.svg"
               />
             </v-btn>
           </template>
           <v-list
-            style="max-height: 80vh; min-width: 800px"
+            style="min-width: 1000px; max-height: 100vh; background-color:#f5c400"
             class="overflow-y-auto"
           >
             <v-container
@@ -124,11 +56,10 @@
                 :key="indCat"
               >
                 <v-subheader v-if="itemCat">
-                  <b>{{ itemCat }}</b>
-                  <v-divider />
+                  <b>{{ itemCat.toUpperCase() }}</b>
                 </v-subheader>
                 <v-layout
-                  row
+                  column
                   wrap
                 >
                   <v-flex
@@ -137,22 +68,15 @@
                     xs3
                   >
                     <v-list-tile
-                      :href="isUserAdmin || !item.lock ? item.link : ''"
+                      :href="item.link"
                       rel="noopener"
                     >
                       <v-list-tile-action>
-                        <svg-icon
-                          v-if="item.lock"
-                          url="https://static.um.city/icons/lock-solid.svg"
-                        />
-                        <svg-icon
-                          v-else
-                          :url="item.svg"
-                        />
+                        <v-list-tile-content class="mcity-menu-category-member" color="primary--text">
+                          {{ item.text }}
+                        </v-list-tile-content>
                       </v-list-tile-action>
-                      <v-list-tile-content color="primary--text">
-                        {{ item.text }}
-                      </v-list-tile-content>
+                      
                     </v-list-tile>
                   </v-flex>
                 </v-layout>
@@ -336,6 +260,9 @@ export default {
 .mcity-subtitle {
   font-weight: 500;
   padding-left: 20px;
+}
+.mcity-menu-category-member {
+  margin-left: 10px;
 }
 .mcity-no-padding {
   padding: 0 0 0 0;
