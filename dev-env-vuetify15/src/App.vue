@@ -1,39 +1,25 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <mcity-toolbar
+      fullname="fullname"
+      username="username"
+      presentation-text="Presentation Mode"
+      :isUserAdmin="true"
+      title="title"
+    >
+      <template v-slot:buttons >
+      </template>
+    </mcity-toolbar>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import McityToolbar from '@mcity/mcity-vue-shared/components/McityToolbarVuetify1.5'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    McityToolbar,
   },
-  data () {
-    return {
-      //
-    }
-  }
-}
+};
 </script>
