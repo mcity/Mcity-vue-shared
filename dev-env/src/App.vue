@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import McityToolbar from '@mcity/mcity-vue-shared/components/McityToolbar'
+import McityToolbar from '@mcity/mcity-vue-shared/components/McityToolbarVuetify1.5'
 
 export default {
   name: 'App',
