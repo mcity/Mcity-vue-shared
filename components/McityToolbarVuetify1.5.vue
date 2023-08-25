@@ -44,7 +44,7 @@
             </v-btn>
           </template>
           <v-list
-            style="min-width: 1000px; max-height: 100vh; background-color:#f5c400"
+            style="min-width: 400px; max-height: 100vh;"
             class="overflow-y-auto"
           >
             <v-container
@@ -71,8 +71,13 @@
                       :href="item.link"
                       rel="noopener"
                     >
-                      <v-list-tile-action>
-                        <v-list-tile-content class="mcity-menu-category-member" color="primary--text">
+                      <v-list-tile-action class="d-flex" style="padding-left:66px;">
+                        <v-list-tile-content>
+                          <svg-icon
+                            :url="item.svg"
+                          />
+                        </v-list-tile-content>
+                        <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
                           {{ item.text }}
                         </v-list-tile-content>
                       </v-list-tile-action>
@@ -243,10 +248,17 @@ export default {
         }
         // Set Category list
         vue.applicationCategories = [
-          ...new Set(vue.applicationLinks.map((item) => item.category))
+        ...new Set(
+            vue.applicationLinks.map((item) => {
+              if (!item.category || item.category === "") {
+                return item.text;
+              }
+              return item.category;
+            })
+          ),
         ]
       }.bind(req, this)
-      req.open('GET', 'https://static.um.city/menu.json')
+      req.open("GET", "https://static.um.city/menu_v2.json");
       req.send()
     },
     goHome () {
@@ -263,6 +275,7 @@ export default {
 }
 .mcity-menu-category-member {
   margin-left: 10px;
+  overflow:visible;
 }
 .mcity-no-padding {
   padding: 0 0 0 0;
