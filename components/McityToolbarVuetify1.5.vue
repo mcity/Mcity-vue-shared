@@ -16,8 +16,6 @@
       <v-spacer/>
       <v-toolbar-title
         class="mcity-subtitle"
-        role="button"
-        @click="goHome"
       >
         {{ title }}
       </v-toolbar-title>
@@ -27,7 +25,9 @@
         <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px">
           <template v-slot:activator="{ on }">
             <v-btn icon color="primary" dark v-on="on">
-              <svg-icon color="white" size="sm" class="mt-1 sm" url="https://static.um.city/icons/bars-solid-custom.svg" />
+              <div style="color:white; font-size: 24px;">
+                <i class="fa fa-bars"></i>
+              </div>
             </v-btn>
           </template>
           <v-list
@@ -267,9 +267,6 @@ export default {
       req.open("GET", "https://static.um.city/menu_v2.json");
       req.send()
     },
-    goHome () {
-      this.$router.push('/')
-    }
   }
 }
 </script>
