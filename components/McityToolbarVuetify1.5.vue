@@ -5,6 +5,7 @@
       dark
       color="primary"
       :clipped-left="true"
+      height="45px"
     >
       <router-link
         to="/"
