@@ -49,8 +49,8 @@
                       target="_blank"
                       :class="getForMembersClass(itemCat, hover)"
                       >
-                      <svg-icon :url="itemCat.svg" />
-                      <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                      <svg-icon :url="itemCat.svg" :style="getFontColorForMembers(itemCat.text)" />
+                      <v-list-tile-content class="mcity-menu-category-member" :style="getFontColorForMembers(itemCat)" style="overflow:visible; font-size: 20px; white-space: nowrap;">
                         {{itemCat.toUpperCase()}}
                       </v-list-tile-content>
                     </v-list-tile>
@@ -231,6 +231,9 @@ export default {
       return this.applicationLinks.filter(function (e) {
         return e.category === category
       })
+    },
+    getFontColorForMembers(tileText) {
+      return tileText === "FOR MEMBERS" ? "color:white" : "";
     },
     getForMembersClass(tileText, hover) {
       console.log(tileText, hover)
