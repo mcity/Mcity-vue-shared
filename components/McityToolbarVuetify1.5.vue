@@ -37,8 +37,8 @@
           >
             <v-container fluidgrid-list-sm>
               <v-layout
-                v-for="(itemCat, indCat) in applicationCategories"
-                :key="indCat"
+                v-for="(itemCategory, categoryIndex) in applicationCategories"
+                :key="categoryIndex"
                 xs4
                 column
                 wrap
@@ -48,13 +48,13 @@
                   <v-hover>
                     <v-list-tile
                       slot-scope="{ hover }"
-                      :href="itemCat.link"
+                      :href="itemCategory.link"
                       target="_blank"
-                      :class="getForMembersClass(itemCat, hover)"
+                      :class="getCssClassForCategory(itemCategory, hover)"
                       >
-                      <svg-icon :url="itemCat.svg" :style="getFontColorForMembers(itemCat.text)" />
-                      <v-list-tile-content class="mcity-menu-category-member" :style="getFontColorForMembers(itemCat)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
-                        {{itemCat.toUpperCase()}}
+                      <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory)" />
+                      <v-list-tile-content class="mcity-menu-category-member" :style="getFontColorForMembersCategory(itemCategory)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
+                        {{itemCategory.toUpperCase()}}
                       </v-list-tile-content>
                     </v-list-tile>
                   </v-hover>
@@ -65,8 +65,8 @@
                   wrap
                 >
                   <v-flex
-                    v-for="(item, ind) in listApplications(itemCat)"
-                    :key="ind"
+                    v-for="(item, index) in getCategoryMembers(itemCategory)"
+                    :key="index"
                     xs3
                   >
                     <v-list-tile
@@ -231,15 +231,15 @@ export default {
     this.setapplicationLinks()
   },
   methods: {
-    listApplications (category) {
+    getCategoryMembers (category) {
       return this.applicationLinks.filter(function (e) {
         return e.category === category
       })
     },
-    getFontColorForMembers(tileText) {
+    getFontColorForMembersCategory(tileText) {
       return tileText === "FOR MEMBERS" ? "color:white" : "";
     },
-    getForMembersClass(tileText, hover) {
+    getCssClassForCategory(tileText, hover) {
       console.log(tileText, hover)
       return tileText === "FOR MEMBERS" ? (hover ? "bg-members-hover" : "bg-members") : "";
     },
