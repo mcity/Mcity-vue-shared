@@ -32,7 +32,7 @@
             </v-btn>
           </template>
           <v-list
-            dense
+            compact
             style="min-width: 400px; max-width: 400px; max-height: 100vh;"
             class="overflow-y-auto"
           >
