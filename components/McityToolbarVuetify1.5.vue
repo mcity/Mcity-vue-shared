@@ -14,9 +14,7 @@
         <mcity-logo class="mcity-logo-padding-top" />
       </router-link>
       <v-spacer/>
-      <v-toolbar-title
-        class="mcity-subtitle"
-      >
+      <v-toolbar-title class="mcity-subtitle" style="font-size: 20px;">
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
@@ -103,14 +101,12 @@
             <v-list-tile>
               <v-list-tile-content class="mcity-no-padding">
                 <v-list-tile-title>
-                  <a
-                    href="https://keys.um.city"
-                    rel="noopener"
+                  <a href="https://keys.um.city" rel="noopener" style="font-size: 20px;"
                   >
                     {{ fullname }}
                   </a>
                 </v-list-tile-title>
-                <v-list-tile-sub-title>
+                <v-list-tile-sub-title style="font-size: 18px;">
                   {{ username }}
                 </v-list-tile-sub-title>
               </v-list-tile-content>
@@ -124,6 +120,7 @@
                 class="mcity-no-padding"
                 href="https://keys.um.city/password"
                 v-on="on"
+                style="font-size:20px"
               >
                 Change Password
                 <svg-icon
@@ -140,6 +137,7 @@
                 class="mcity-no-padding"
                 href="https://keys.um.city/logout"
                 v-on="on"
+                style="font-size: 20px;"
               >
                 Logout
                 <svg-icon
