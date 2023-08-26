@@ -12,6 +12,7 @@
       >
         <mcity-logo class="mcity-logo-padding-top" />
       </router-link>
+      <v-spacer></v-spacer>
       <v-toolbar-title
         class="mcity-subtitle"
         role="button"
