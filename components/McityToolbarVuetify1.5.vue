@@ -24,7 +24,7 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px">
+        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px">
           <template v-slot:activator="{ on }">
             <v-btn icon color="primary" dark v-on="on">
               <svg-icon color="white" size="sm" class="mt-1 sm" url="https://static.um.city/icons/bars-solid-custom.svg" />
@@ -87,6 +87,7 @@
           </v-list>
         </v-menu>
         <v-menu
+          content-class="elevation-1"
           left
           v-if="showUserMenu"
           v-model="avatarMenu"
