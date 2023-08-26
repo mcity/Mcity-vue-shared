@@ -1,204 +1,117 @@
 <template>
   <div>
-    <v-navigation-drawer
-      v-model="drawer"
-      persistent
-      :clipped="true"
-      enable-resize-watcher
-      fixed
-      app
-      width="220"
-    >
-      <v-list>
-        <slot name="overflow-buttons" />
-        <v-divider />
-        <v-list-tile
-          v-if="showPresentationButton"
-          @click="$store.commit('updatePresentationMode')"
-        >
-          <v-list-tile-action>
-            <svg-icon
-              size="sm"
-              url="https://static.um.city/icons/text-height-solid.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content>
-            {{ presentationText }}
-          </v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-tile
-          :href="'/apidocs'"
-        >
-          <v-list-tile-action>
-            <svg-icon
-              size="sm"
-              url="https://static.um.city/icons/brackets-curly-solid.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content> API Docs </v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-tile @click="getHelp">
-          <v-list-tile-action>
-            <svg-icon
-              size="sm"
-              url="https://static.um.city/icons/question-circle-solid.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content> Help </v-list-tile-content>
-        </v-list-tile>
-        <v-divider />
-        <v-list-tile>
-          <v-list-tile-action>
-            <svg-icon
-              :color="gray"
-              size="sm"
-              url="https://static.um.city/icons/applicationMoved.svg"
-            />
-          </v-list-tile-action>
-          <v-list-tile-content>
-            Apps have moved to the top right.
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <v-toolbar
       app
       dark
       color="primary"
       :clipped-left="true"
+      height="45px"
     >
-      <v-toolbar-side-icon
-        id="nav-toggle-btn"
-        @click="drawer = !drawer"
-      />
-
       <router-link
         to="/"
         class="hidden-sm-and-down"
       >
         <mcity-logo class="mcity-logo-padding-top" />
       </router-link>
-      <v-toolbar-title
-        class="mcity-subtitle"
-        role="button"
-        @click="goHome"
-      >
+      <v-spacer/>
+      <v-toolbar-title class="mcity-subtitle" style="font-size: 20px;">
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu
-          left
-          v-if="showApplicationMenu"
-          v-model="appMenu"
-          offset-y
-        >
+        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y allow-overflow nudge-right="77px">
           <template v-slot:activator="{ on }">
-            <v-btn
-              icon
-              color="primary"
-              dark
-              v-on="on"
-            >
-              <svg-icon
-                color="white"
-                size="sm"
-                class="mt-1"
-                url="https://static.um.city/icons/th-solid.svg"
-              />
+            <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
+              <div style="color:white; font-size: 24px;">
+                MENU
+                <i class="fa fa-bars"></i>
+              </div>
             </v-btn>
           </template>
           <v-list
-            style="max-height: 80vh; min-width: 800px"
+            compact
+            style="min-width: 400px; max-width: 400px; max-height: 90vh;"
             class="overflow-y-auto"
           >
-            <v-container
-              fluid
-              grid-list-sm
-            >
-              <div
-                v-for="(itemCat, indCat) in applicationCategories"
-                :key="indCat"
+            <v-container fluidgrid-list-sm>
+              <v-layout
+                v-for="(itemCategory, categoryIndex) in applicationCategories"
+                :key="categoryIndex"
+                xs4
+                column
+                wrap
               >
-                <v-subheader v-if="itemCat">
-                  <b>{{ itemCat }}</b>
-                  <v-divider />
-                </v-subheader>
+ 
+                <v-flex xs3>
+                  <v-hover>
+                    <v-list-tile
+                      slot-scope="{ hover }"
+                      :href="itemCategory.link"
+                      :class="getCssClassForCategory(itemCategory.text, hover)"
+                      >
+                      <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory.text)" />
+                      <v-list-tile-content class="mcity-menu-category-member" :style="getFontColorForMembersCategory(itemCategory.text)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
+                        {{itemCategory.text.toUpperCase()}}
+                      </v-list-tile-content>
+                    </v-list-tile>
+                  </v-hover>
+                </v-flex>
+
                 <v-layout
-                  row
+                  column
                   wrap
                 >
                   <v-flex
-                    v-for="(item, ind) in listApplications(itemCat)"
-                    :key="ind"
+                    v-for="(item, index) in getCategoryMembers(itemCategory.text)"
+                    :key="index"
                     xs3
                   >
                     <v-list-tile
-                      :href="isUserAdmin || !item.lock ? item.link : ''"
+                      :href="item.link"
                       rel="noopener"
                     >
-                      <v-list-tile-action>
-                        <svg-icon
-                          v-if="item.lock"
-                          url="https://static.um.city/icons/lock-solid.svg"
-                        />
-                        <svg-icon
-                          v-else
-                          :url="item.svg"
-                        />
-                      </v-list-tile-action>
-                      <v-list-tile-content color="primary--text">
-                        {{ item.text }}
-                      </v-list-tile-content>
+                      <div class="d-flex" style="padding-left:66px;">
+                        <svg-icon :url="item.svg"/>
+                        <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; font-weight: 400; white-space: nowrap;">
+                          {{ item.text }}
+                        </v-list-tile-content>
+                      </div>
+                      
                     </v-list-tile>
                   </v-flex>
                 </v-layout>
-              </div>
+              </v-layout>
             </v-container>
           </v-list>
         </v-menu>
-        <v-menu
-          left
-          v-if="showUserMenu"
-          v-model="avatarMenu"
-          offset-y
-        >
+        <v-menu content-class="elevation-1" left v-if="showUserMenu" v-model="avatarMenu" offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn
-              icon
-              color="primary"
-              dark
-              v-on="on"
-            >
+            <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
               <svg-icon
                 color="white"
                 size="sm"
-                class="mt-1"
+                class="mcity-user-icon mt-1"
                 url="https://static.um.city/icons/user-circle-solid.svg"
               />
             </v-btn>
           </template>
-          <v-list class="mcity-min-content">
+          <v-list compact style="min-width: 400px; max-width: 400px; max-height: 90vh;" class="overflow-y-auto">
             <v-list-tile>
               <v-list-tile-content class="mcity-no-padding">
                 <v-list-tile-title>
-                  <a
-                    href="https://keys.um.city"
-                    rel="noopener"
+                  <a href="https://keys.um.city" rel="noopener" style="font-size: 20px;"
                   >
                     {{ fullname }}
                   </a>
                 </v-list-tile-title>
-                <v-list-tile-sub-title>
+                <v-list-tile-sub-title style="font-size: 18px;">
                   {{ username }}
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
-          <v-divider />
+          <v-divider style="margin:0px;"/>
           <v-list>
             <v-list-tile>
               <v-btn
@@ -206,6 +119,7 @@
                 class="mcity-no-padding"
                 href="https://keys.um.city/password"
                 v-on="on"
+                style="font-size:20px"
               >
                 Change Password
                 <svg-icon
@@ -220,8 +134,9 @@
               <v-btn
                 flat
                 class="mcity-no-padding"
-                href="https://keys.um.city/logout"
+                :href="logoutUrl"
                 v-on="on"
+                style="font-size: 20px;"
               >
                 Logout
                 <svg-icon
@@ -285,6 +200,11 @@ export default {
     showApplicationMenu: {
       type: Boolean,
       default: true
+    },
+    logoutUrl: {
+      required: false,
+      type: String,
+      default: "https://keys.um.city/logout"
     }
   },
   data () {
@@ -299,14 +219,25 @@ export default {
       on: {}
     }
   },
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleClickOutside);
+  },
   mounted () {
+    document.addEventListener('click', this.handleClickOutside);
     this.setapplicationLinks()
   },
   methods: {
-    listApplications (category) {
+    getCategoryMembers (category) {
       return this.applicationLinks.filter(function (e) {
         return e.category === category
       })
+    },
+    getFontColorForMembersCategory(tileText) {
+      return tileText === "FOR MEMBERS" ? "color:white" : "";
+    },
+    getCssClassForCategory(tileText, hover) {
+      console.log(tileText, hover)
+      return tileText === "FOR MEMBERS" ? (hover ? "bg-members-hover" : "bg-members") : "";
     },
     getHelp () {
       window.location.href = 'mailto:mcity-engineering@umich.edu'
@@ -317,25 +248,43 @@ export default {
         if (this.readyState === XMLHttpRequest.DONE) {
           vue.applicationLinks = JSON.parse(req.responseText)
         }
-        // Set Category list
-        vue.applicationCategories = [
-          ...new Set(vue.applicationLinks.map((item) => item.category))
-        ]
+        //Set Category list
+        vue.applicationCategories = 
+        vue.applicationLinks.filter(function (e) {
+              return !e.category || e.category === ""; 
+            })
+        ;
       }.bind(req, this)
-      req.open('GET', 'https://static.um.city/menu.json')
+      req.open("GET", "https://static.um.city/menu_v2.json");
       req.send()
     },
-    goHome () {
-      this.$router.push('/')
-    }
+    handleClickOutside(event) {
+      if (!this.$el.contains(event.target)) {
+          this.appMenu = false;
+          this.avatarMenu = false;
+      }
+    },
   }
 }
 </script>
 
 <style>
+a.v-list-item:hover{
+  text-decoration: none;
+}
+.bg-members {
+  background-color: #C55311;
+}
+.bg-members-hover {
+  background-color: #9F3F07;
+}
 .mcity-subtitle {
   font-weight: 500;
-  padding-left: 20px;
+  padding-left: 0px;
+}
+.mcity-menu-category-member {
+  margin-left: 10px;
+  overflow:visible;
 }
 .mcity-no-padding {
   padding: 0 0 0 0;
@@ -347,6 +296,9 @@ export default {
 }
 .mcity-logo-padding-top {
   padding-top: 4px;
+}
+.mcity-user-icon {
+  font-size: 16px;
 }
 svg-icon {
   height: 22px;

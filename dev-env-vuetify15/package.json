@@ -1,0 +1,55 @@
+{
+  "name": "dev-env",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0-rc.1",
+    "@mcity/mcity-vue-shared": "file:..",
+    "axios": "^0.21.2",
+    "core-js": "^3.6.4",
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.9",
+    "vuetify": "^1.5.24"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-service": "^4.2.3",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.1.2",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.1",
+    "vue-cli-plugin-vuetify": "~0.3.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.6.0",
+    "webpack": "^4.42.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
+}
