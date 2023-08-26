@@ -42,17 +42,19 @@
               >
  
                 <v-flex xs3>
-                  <v-list-tile
-                    :href="itemCat.link"
-                    target="_blank"
-                    :class="getForMembersClass(itemCat)"
-                    >
-                    <svg-icon :url="itemCat.svg" />
-                    <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
-                      {{itemCat.toUpperCase()}}
-                    </v-list-tile-content>
-
-                  </v-list-tile>
+                  <v-hover>
+                    <v-list-tile
+                      slot-scope="{ hover }"
+                      :href="itemCat.link"
+                      target="_blank"
+                      :class="getForMembersClass(itemCat, hover)"
+                      >
+                      <svg-icon :url="itemCat.svg" />
+                      <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                        {{itemCat.toUpperCase()}}
+                      </v-list-tile-content>
+                    </v-list-tile>
+                  </v-hover>
                 </v-flex>
 
                 <v-layout
@@ -230,9 +232,9 @@ export default {
         return e.category === category
       })
     },
-    getForMembersClass(tileText) {
-      console.log(tileText)
-      return tileText === "FOR MEMBERS" ? "bg-members" : "";
+    getForMembersClass(tileText, hover) {
+      console.log(tileText, hover)
+      return tileText === "FOR MEMBERS" ? (hover ? "bg-members-hover" : "bg-members") : "";
     },
     getHelp () {
       window.location.href = 'mailto:mcity-engineering@umich.edu'
@@ -268,6 +270,9 @@ export default {
 <style>
 .bg-members {
   background-color: #C55311;
+}
+.bg-members-hover {
+  background-color: #9F3F07;
 }
 .mcity-subtitle {
   font-weight: 500;
