@@ -22,42 +22,38 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu
-          left
-          v-if="showApplicationMenu"
-          v-model="appMenu"
-          offset-y
-        >
+        <v-menu left v-if="showApplicationMenu" v-model="appMenu" offset-y nudge-right="65px">
           <template v-slot:activator="{ on }">
-            <v-btn
-              icon
-              color="primary"
-              dark
-              v-on="on"
-            >
-              <svg-icon
-                color="white"
-                size="sm"
-                class="mt-1 sm"
-                url="https://static.um.city/icons/bars-solid-custom.svg"
-              />
+            <v-btn icon color="primary" dark v-on="on">
+              <svg-icon color="white" size="sm" class="mt-1 sm" url="https://static.um.city/icons/bars-solid-custom.svg" />
             </v-btn>
           </template>
           <v-list
             style="min-width: 400px; max-height: 100vh;"
             class="overflow-y-auto"
           >
-            <v-container
-              fluid
-              grid-list-sm
-            >
-              <div
+            <v-container fluidgrid-list-sm>
+              <v-layout
                 v-for="(itemCat, indCat) in applicationCategories"
                 :key="indCat"
+                xs4
+                column
+                wrap
               >
-                <v-subheader v-if="itemCat">
-                  <b>{{ itemCat.toUpperCase() }}</b>
-                </v-subheader>
+ 
+                <v-flex xs3>
+                  <v-list-tile
+                    :href="itemCat.link"
+                    target="_blank"
+                    >
+                    <svg-icon :url="itemCat.svg" />
+                    <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                      {{itemCat.toUpperCase()}}
+                    </v-list-tile-content>
+
+                  </v-list-tile>
+                </v-flex>
+
                 <v-layout
                   column
                   wrap
@@ -72,11 +68,7 @@
                       rel="noopener"
                     >
                       <v-list-tile-action class="d-flex" style="padding-left:66px;">
-                        <v-list-tile-content>
-                          <svg-icon
-                            :url="item.svg"
-                          />
-                        </v-list-tile-content>
+                        <svg-icon :url="item.svg"/>
                         <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
                           {{ item.text }}
                         </v-list-tile-content>
@@ -85,7 +77,7 @@
                     </v-list-tile>
                   </v-flex>
                 </v-layout>
-              </div>
+              </v-layout>
             </v-container>
           </v-list>
         </v-menu>
