@@ -112,7 +112,7 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
-          <v-divider />
+          <v-divider style="margin:0px;"/>
           <v-list>
             <v-list-tile>
               <v-btn
