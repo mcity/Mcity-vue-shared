@@ -48,11 +48,11 @@
                     <v-list-tile
                       slot-scope="{ hover }"
                       :href="itemCategory.link"
-                      :class="getCssClassForCategory(itemCategory, hover)"
+                      :class="getCssClassForCategory(itemCategory.text, hover)"
                       >
-                      <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory)" />
-                      <v-list-tile-content class="mcity-menu-category-member" :style="getFontColorForMembersCategory(itemCategory)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
-                        {{itemCategory.toUpperCase()}}
+                      <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory.text)" />
+                      <v-list-tile-content class="mcity-menu-category-member" :style="getFontColorForMembersCategory(itemCategory.text)" style="overflow:visible; font-size: 20px; font-weight: 500; white-space: nowrap;">
+                        {{itemCategory.text.toUpperCase()}}
                       </v-list-tile-content>
                     </v-list-tile>
                   </v-hover>
@@ -63,7 +63,7 @@
                   wrap
                 >
                   <v-flex
-                    v-for="(item, index) in getCategoryMembers(itemCategory)"
+                    v-for="(item, index) in getCategoryMembers(itemCategory.text)"
                     :key="index"
                     xs3
                   >
@@ -248,17 +248,12 @@ export default {
         if (this.readyState === XMLHttpRequest.DONE) {
           vue.applicationLinks = JSON.parse(req.responseText)
         }
-        // Set Category list
-        vue.applicationCategories = [
-        ...new Set(
-            vue.applicationLinks.map((item) => {
-              if (!item.category || item.category === "") {
-                return item.text;
-              }
-              return item.category;
+        //Set Category list
+        vue.applicationCategories = 
+        vue.applicationLinks.filter(function (e) {
+              return !e.category || e.category === ""; 
             })
-          ),
-        ]
+        ;
       }.bind(req, this)
       req.open("GET", "https://static.um.city/menu_v2.json");
       req.send()
