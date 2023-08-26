@@ -134,7 +134,7 @@
               <v-btn
                 flat
                 class="mcity-no-padding"
-                href="https://keys.um.city/logout"
+                :href="logoutUrl"
                 v-on="on"
                 style="font-size: 20px;"
               >
@@ -200,6 +200,11 @@ export default {
     showApplicationMenu: {
       type: Boolean,
       default: true
+    },
+    logoutUrl: {
+      required: false,
+      type: String,
+      default: "https://keys.um.city/logout"
     }
   },
   data () {
