@@ -33,7 +33,7 @@
           </template>
           <v-list
             dense
-            style="min-width: 400px; max-height: 100vh;"
+            style="min-width: 400px; max-width: 400px; max-height: 100vh;"
             class="overflow-y-auto"
           >
             <v-container fluidgrid-list-sm>
@@ -99,7 +99,7 @@
               />
             </v-btn>
           </template>
-          <v-list compact style="min-width: 400px; max-height: 100vh;" class="overflow-y-auto">
+          <v-list compact style="min-width: 400px; max-width: 400px; max-height: 100vh;" class="overflow-y-auto">
             <v-list-tile>
               <v-list-tile-content class="mcity-no-padding">
                 <v-list-tile-title>
