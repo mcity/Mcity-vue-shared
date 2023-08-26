@@ -13,7 +13,7 @@
       >
         <mcity-logo class="mcity-logo-padding-top" />
       </router-link>
-      <v-spacer></v-spacer>
+      <v-spacer/>
       <v-toolbar-title
         class="mcity-subtitle"
         role="button"
@@ -281,7 +281,7 @@ export default {
 }
 .mcity-subtitle {
   font-weight: 500;
-  padding-left: 20px;
+  padding-left: 0px;
 }
 .mcity-menu-category-member {
   margin-left: 10px;
