@@ -45,6 +45,7 @@
                   <v-list-tile
                     :href="itemCat.link"
                     target="_blank"
+                    :class="getForMembersClass(itemCat)"
                     >
                     <svg-icon :url="itemCat.svg" />
                     <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
@@ -67,12 +68,12 @@
                       :href="item.link"
                       rel="noopener"
                     >
-                      <v-list-tile-action class="d-flex" style="padding-left:66px;">
+                      <div class="d-flex" style="padding-left:66px;">
                         <svg-icon :url="item.svg"/>
-                        <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 20px; white-space: nowrap;">
+                        <v-list-tile-content class="mcity-menu-category-member" color="primary--text" style="overflow:visible; font-size: 18px; white-space: nowrap;">
                           {{ item.text }}
                         </v-list-tile-content>
-                      </v-list-tile-action>
+                      </div>
                       
                     </v-list-tile>
                   </v-flex>
@@ -229,6 +230,10 @@ export default {
         return e.category === category
       })
     },
+    getForMembersClass(tileText) {
+      console.log(tileText)
+      return tileText === "FOR MEMBERS" ? "bg-members" : "";
+    },
     getHelp () {
       window.location.href = 'mailto:mcity-engineering@umich.edu'
     },
@@ -261,6 +266,9 @@ export default {
 </script>
 
 <style>
+.bg-members {
+  background-color: #C55311;
+}
 .mcity-subtitle {
   font-weight: 500;
   padding-left: 20px;
