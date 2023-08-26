@@ -260,6 +260,9 @@ export default {
 </script>
 
 <style>
+a.v-list-item:hover{
+  text-decoration: none;
+}
 .bg-members {
   background-color: #C55311;
 }
