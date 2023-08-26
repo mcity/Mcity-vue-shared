@@ -5,7 +5,7 @@
       username="username"
       presentation-text="Presentation Mode"
       :isUserAdmin="true"
-      title="title"
+      title="Vuetify 1.5 Dev Environment"
     >
       <template v-slot:buttons >
       </template>
