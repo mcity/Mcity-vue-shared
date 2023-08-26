@@ -31,6 +31,7 @@
             </v-btn>
           </template>
           <v-list
+            dense
             style="min-width: 400px; max-height: 100vh;"
             class="overflow-y-auto"
           >
