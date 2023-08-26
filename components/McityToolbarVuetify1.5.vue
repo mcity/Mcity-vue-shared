@@ -48,7 +48,6 @@
                     <v-list-tile
                       slot-scope="{ hover }"
                       :href="itemCategory.link"
-                      target="_blank"
                       :class="getCssClassForCategory(itemCategory, hover)"
                       >
                       <svg-icon :url="itemCategory.svg" :style="getFontColorForMembersCategory(itemCategory)" />
