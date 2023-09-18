@@ -13,13 +13,13 @@
       <v-spacer />
       <v-toolbar-items>
         <slot name="buttons" />
-        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y allow-overflow nudge-right="77px">
+        <v-menu content-class="elevation-1" left v-if="showApplicationMenu" v-model="appMenu" offset-y allow-overflow nudge-right="77px" style="max-height: 90vh;">
           <template v-slot:activator="{ on }">
               <v-btn color="primary" dark v-on="on" style="box-shadow: none;">
                 <div style="color:white; font-size: 24px;">MENU <i class="fa fa-bars"></i></div>
               </v-btn> 
           </template>
-          <v-list compact style="min-width: 400px; max-width: 400px; max-height: 90vh;" class="overflow-y-auto">
+          <v-list compact style="min-width: 400px; max-width: 400px; " class="overflow-y-auto">
             <v-container fluid grid-list-sm>
               <v-layout
                 v-for="(itemCategory, categoryIndex) in applicationCategories"
