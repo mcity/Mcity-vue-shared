@@ -236,7 +236,6 @@ export default {
       return tileText === "FOR MEMBERS" ? "color:white" : "";
     },
     getCssClassForCategory(tileText, hover) {
-      console.log(tileText, hover)
       return tileText === "FOR MEMBERS" ? (hover ? "bg-members-hover" : "bg-members") : "";
     },
     getHelp () {
